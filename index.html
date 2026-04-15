@@ -31,12 +31,10 @@
 
   /* ════ HERO ════ */
   .hero {
-    background:linear-gradient(160deg, #f0fdf4 0%, #d8f3dc 50%, #fdf6ec 100%);
+    background:linear-gradient(160deg,#f0fdf4 0%,#d8f3dc 50%,#fdf6ec 100%);
     padding:70px 24px 80px; text-align:center; position:relative; overflow:hidden;
   }
-  .hero-blob {
-    position:absolute; border-radius:50%; filter:blur(70px); opacity:.25; pointer-events:none;
-  }
+  .hero-blob { position:absolute; border-radius:50%; filter:blur(70px); opacity:.25; pointer-events:none; }
   .hero-blob.b1 { width:400px; height:400px; background:var(--menta); top:-100px; right:-80px; }
   .hero-blob.b2 { width:350px; height:350px; background:var(--laranja); bottom:-60px; left:-60px; }
   .hero-content { position:relative; max-width:700px; margin:0 auto; }
@@ -71,11 +69,10 @@
   .btn-hero:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(45,106,79,.45); }
   .hero-prova { margin-top:36px; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
   .hero-prova-item { display:flex; align-items:center; gap:6px; font-size:.8rem; color:var(--cinza); font-weight:500; }
-  .hero-prova-item svg { flex-shrink:0; }
 
   /* ════ SEÇÕES ════ */
   section { padding:80px 24px; }
-  .wrap { max-width:900px; margin:0 auto; }
+  .wrap { max-width:1100px; margin:0 auto; }
   .wrap-sm { max-width:680px; margin:0 auto; }
   .tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--verde); background:var(--claro); border-radius:20px; padding:4px 14px; margin-bottom:14px; }
   .titulo { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; color:var(--verde2); line-height:1.2; margin-bottom:14px; }
@@ -121,22 +118,38 @@
   .pq-icon { font-size:1.8rem; flex-shrink:0; margin-top:2px; }
   .pq-card p { font-size:.88rem; color:#374151; line-height:1.6; }
 
-  /* ════ RECEITAS AMOSTRA ════ */
+  /* ════ RECEITAS ════ */
   .receitas-bg { background:var(--creme); }
-  .receitas-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-top:40px; }
-  .receita-card {
-    background:white; border-radius:14px; overflow:hidden;
-    border:1.5px solid #e5e7eb; transition:transform .2s;
+  .tabs { display:flex; gap:10px; margin-top:44px; flex-wrap:wrap; justify-content:center; }
+  .tab-btn {
+    padding:10px 22px; border-radius:30px; border:2px solid #e5e7eb;
+    background:white; font-size:.88rem; font-weight:600; color:var(--cinza);
+    cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif;
   }
-  .receita-card:hover { transform:translateY(-3px); }
-  .receita-thumb {
-    height:130px; display:flex; align-items:center; justify-content:center;
-    font-size:3.2rem; background:var(--claro);
+  .tab-btn.ativo { background:var(--verde); border-color:var(--verde); color:white; }
+  .tab-btn:hover:not(.ativo) { border-color:var(--verde); color:var(--verde); }
+  .tab-panel { display:none; }
+  .tab-panel.ativo { display:block; }
+  .rec-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; margin-top:28px; }
+  .rec-card {
+    background:white; border-radius:16px; overflow:hidden;
+    border:1.5px solid #e5e7eb; transition:transform .25s, box-shadow .25s;
   }
-  .receita-info { padding:14px; }
-  .receita-info h5 { font-size:.88rem; font-weight:700; color:var(--verde2); margin-bottom:4px; }
-  .receita-info p { font-size:.75rem; color:var(--cinza); }
-  .receita-tag { display:inline-block; font-size:.65rem; font-weight:700; border-radius:20px; padding:2px 9px; margin-top:6px; background:var(--claro); color:var(--verde); }
+  .rec-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(45,106,79,.13); }
+  .rec-img { width:100%; height:170px; object-fit:cover; display:block; }
+  .rec-body { padding:18px; }
+  .rec-badges { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+  .rec-badge {
+    font-size:.65rem; font-weight:700; border-radius:20px; padding:3px 10px;
+    background:var(--claro); color:var(--verde);
+  }
+  .rec-badge.laranja { background:#fef3c7; color:#92400e; }
+  .rec-badge.roxo { background:#f5f3ff; color:#6d28d9; }
+  .rec-card h4 { font-size:.95rem; font-weight:700; color:var(--verde2); margin-bottom:6px; line-height:1.3; }
+  .rec-card p { font-size:.8rem; color:var(--cinza); line-height:1.6; margin-bottom:12px; }
+  .rec-meta { display:flex; gap:12px; flex-wrap:wrap; }
+  .rec-meta span { font-size:.72rem; font-weight:600; color:var(--cinza); display:flex; align-items:center; gap:4px; }
+  .rec-macro { font-size:.78rem; font-weight:700; color:var(--verde); background:var(--claro); border-radius:8px; padding:4px 10px; margin-top:10px; display:inline-block; }
 
   /* ════ RESULTADOS ════ */
   .resultados-bg { background:white; }
@@ -204,16 +217,6 @@
   footer { background:#0f2d1a; padding:28px 24px; text-align:center; }
   footer p { font-size:.78rem; color:rgba(255,255,255,.35); }
 
-  /* ════ WPP FLUTUANTE ════ */
-  .wpp-float {
-    position:fixed; bottom:24px; right:24px; z-index:200;
-    width:56px; height:56px; border-radius:50%; background:#25d366; border:none;
-    display:flex; align-items:center; justify-content:center; cursor:pointer;
-    box-shadow:0 4px 20px rgba(37,211,102,.45); text-decoration:none;
-    animation:pulse-wpp 2.5s infinite;
-  }
-  @keyframes pulse-wpp { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)} 50%{box-shadow:0 4px 32px rgba(37,211,102,.7)} }
-
   /* ════ REVEAL ════ */
   .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity:1; transform:none; }
@@ -224,7 +227,8 @@
     section { padding:60px 20px; }
     .historia-box { padding:30px 22px; }
     .preco-box { padding:36px 24px; }
-    .wpp-float { bottom:18px; right:18px; }
+    .tabs { gap:8px; }
+    .tab-btn { padding:8px 16px; font-size:.82rem; }
   }
 </style>
 </head>
@@ -232,7 +236,7 @@
 
 <!-- ══ TOPO ══ -->
 <div class="topo">
-  Oferta por tempo limitado — <strong>R$ 67 no Pix</strong> com acesso vitalício 🌿
+  Oferta de lançamento — <strong>R$ 19,99 no Pix</strong> com acesso vitalício 🌿
 </div>
 
 <!-- ══ HERO ══ -->
@@ -244,9 +248,8 @@
     <div class="hero-badge"><span></span> Método real, resultado real</div>
     <h1>Como emagreci <em>13 kg</em> sem abrir mão do sabor</h1>
     <p>Aprenda as receitas saudáveis e gostosas que transformaram minha alimentação — sem dieta sofrida, sem passar fome e sem largar o que você ama comer.</p>
-    <a class="btn-hero" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067" target="_blank">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      Quero começar agora — R$ 67
+    <a class="btn-hero" href="#comprar">
+      Quero começar agora — R$ 19,99
     </a>
     <div class="hero-prova">
       <div class="hero-prova-item">
@@ -273,13 +276,13 @@
       <h2 class="titulo">De quem cozinha com amor e já viveu na pele</h2>
     </div>
     <div class="historia-box reveal">
-      <p>Sempre amei cozinhar. A cozinha pra mim nunca foi só um lugar de fazer comida — é onde eu cuido das pessoas que amo. Mas por muito tempo, esse amor pela cozinha também me fez ganhar peso sem perceber.</p>
-      <p>Tentei várias dietas. Passei fome, cortei tudo que gostava, me senti frustrada. E o resultado? Voltava ao peso de antes em poucas semanas.</p>
+      <p>Sempre amei cozinhar. A cozinha pra mim nunca foi só um lugar de fazer comida — é onde eu cuido das pessoas que amo. Mas a vida me colocou em situações que me fizeram perder o controle sem eu perceber.</p>
+      <p>Durante a gestação, sofria de ansiedade e depressão. Não tinha uma boa rede de apoio — nem durante a gravidez, nem depois. Comia muito, sem perceber, porque era a única forma que eu encontrava de lidar com tudo.</p>
       <div class="historia-destaque">
-        Foi quando percebi que o problema não era o que eu comia — era <strong>como eu preparava</strong>. Comecei a adaptar minhas receitas favoritas para versões mais saudáveis, sem perder o sabor.
+        No pós-parto, estudava 3 vezes por semana, trabalhava 7 dias, minha folga era meio-dia em diante — e abria o mercado com meu filho pequeno no colo. Me deixando completamente de lado, sem nem perceber.
       </div>
-      <p>Resultado? <strong>Perdi 13 kg</strong> comendo bem, com prazer, sem passar fome. E o melhor: mantive o peso porque não foi dieta — foi uma mudança real na forma de cozinhar.</p>
-      <p>Neste curso eu compartilho tudo que aprendi: as substituições que funcionam, as receitas que viraram rotina na minha casa e o jeito de comer saudável sem sofrimento.</p>
+      <p>Foi quando bati 64 kg e olhei no espelho que decidi: era hora de me colocar em primeiro lugar. Não fiz dieta. Aprendi a <strong>cozinhar de outro jeito</strong> — com amor, com saúde e com sabor.</p>
+      <p>Resultado? <strong>Perdi 13 kg</strong> e mantive o peso porque não foi sacrifício — foi uma transformação real. E é isso que quero ensinar pra você.</p>
     </div>
   </div>
 </section>
@@ -365,88 +368,269 @@
       <h2 class="titulo">Este curso é pra você que...</h2>
     </div>
     <div class="pq-grid">
-      <div class="pq-card reveal">
-        <div class="pq-icon">😔</div>
-        <p>Já tentou várias dietas e não conseguiu manter o peso perdido</p>
-      </div>
-      <div class="pq-card reveal">
-        <div class="pq-icon">🍕</div>
-        <p>Ama comer bem e não quer abrir mão do sabor para emagrecer</p>
-      </div>
-      <div class="pq-card reveal">
-        <div class="pq-icon">⏰</div>
-        <p>Tem pouco tempo e precisa de receitas rápidas e práticas para o dia a dia</p>
-      </div>
-      <div class="pq-card reveal">
-        <div class="pq-icon">👨‍👩‍👧</div>
-        <p>Quer cozinhar mais saudável para a família inteira sem fazer comida separada</p>
-      </div>
-      <div class="pq-card reveal">
-        <div class="pq-icon">💸</div>
-        <p>Quer comer saudável sem gastar uma fortuna em produtos específicos</p>
-      </div>
-      <div class="pq-card reveal">
-        <div class="pq-icon">🎯</div>
-        <p>Busca uma mudança real de hábitos, não uma dieta temporária de sofrimento</p>
-      </div>
+      <div class="pq-card reveal"><div class="pq-icon">😔</div><p>Já tentou várias dietas e não conseguiu manter o peso perdido</p></div>
+      <div class="pq-card reveal"><div class="pq-icon">🍕</div><p>Ama comer bem e não quer abrir mão do sabor para emagrecer</p></div>
+      <div class="pq-card reveal"><div class="pq-icon">⏰</div><p>Tem pouco tempo e precisa de receitas rápidas e práticas para o dia a dia</p></div>
+      <div class="pq-card reveal"><div class="pq-icon">👨‍👩‍👧</div><p>Quer cozinhar mais saudável para a família inteira sem fazer comida separada</p></div>
+      <div class="pq-card reveal"><div class="pq-icon">💸</div><p>Quer comer saudável sem gastar uma fortuna em produtos específicos</p></div>
+      <div class="pq-card reveal"><div class="pq-icon">🎯</div><p>Busca uma mudança real de hábitos, não uma dieta temporária de sofrimento</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ RECEITAS AMOSTRA ══ -->
-<section class="receitas-bg">
+<!-- ══ RECEITAS ══ -->
+<section class="receitas-bg" id="receitas">
   <div class="wrap">
-    <div class="reveal" style="text-align:center; margin-bottom:8px;">
-      <span class="tag">Exemplos de receitas</span>
-      <h2 class="titulo">Uma amostra do que você vai aprender</h2>
+    <div class="reveal" style="text-align:center;">
+      <span class="tag">As receitas do curso</span>
+      <h2 class="titulo">+30 receitas organizadas por categoria</h2>
+      <p class="subtitulo" style="max-width:500px; margin:0 auto">Testadas, aprovadas e explicadas passo a passo. Clique na categoria para explorar.</p>
     </div>
-    <div class="receitas-grid">
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🥞</div>
-        <div class="receita-info">
-          <h5>Panqueca proteica</h5>
-          <p>Pronta em 10 minutos, rica em proteína</p>
-          <span class="receita-tag">☀️ Café da manhã</span>
+
+    <div class="tabs reveal">
+      <button class="tab-btn ativo" onclick="trocarTab('proteina',this)">💪 Ricas em Proteína</button>
+      <button class="tab-btn" onclick="trocarTab('rapidas',this)">⚡ Saborosas e Rápidas</button>
+      <button class="tab-btn" onclick="trocarTab('doces',this)">🍫 Doces Fit</button>
+    </div>
+
+    <!-- PROTEÍNA -->
+    <div class="tab-panel ativo" id="tab-proteina">
+      <div class="rec-grid">
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Frango grelhado">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 20 min</span></div>
+            <h4>Frango grelhado com limão e ervas</h4>
+            <p>Temperado com alho, limão, orégano e azeite. Suculento por dentro e crocante por fora — a base da semana saudável.</p>
+            <div class="rec-meta"><span>🔥 220 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">35g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/824635/pexels-photo-824635.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Omelete">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 10 min</span></div>
+            <h4>Omelete de claras com espinafre e queijo</h4>
+            <p>Leve, nutritivo e pronto em 10 minutos. Perfeito para o café da manhã ou jantar rápido sem culpa.</p>
+            <div class="rec-meta"><span>🔥 180 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">28g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Panqueca proteica">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 15 min</span></div>
+            <h4>Panqueca proteica de banana com aveia</h4>
+            <p>Apenas banana, ovo e aveia. Fofa, nutritiva e que sustenta até o almoço. Pode rechear com pasta de amendoim.</p>
+            <div class="rec-meta"><span>🔥 240 kcal</span><span>👤 2 porções</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">22g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1516415/pexels-photo-1516415.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Peixe assado">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 25 min</span></div>
+            <h4>Tilápia assada com alho e limão</h4>
+            <p>Peixe leve, acessível e cheio de proteína. Temperado com alho, limão e azeite — simples e sofisticado.</p>
+            <div class="rec-meta"><span>🔥 195 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">32g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Salada com frango">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 20 min</span></div>
+            <h4>Salada caesar fit com frango desfiado</h4>
+            <p>Molho caseiro leve, frango temperado e crocante de grão-de-bico no lugar do crouton. Saciante e deliciosa.</p>
+            <div class="rec-meta"><span>🔥 310 kcal</span><span>👤 2 porções</span><span>🟡 Médio</span></div>
+            <span class="rec-macro">38g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Shake proteico">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 5 min</span></div>
+            <h4>Shake de morango com iogurte grego</h4>
+            <p>Sem whey, sem suplemento. Só morango, iogurte grego, leite e mel. Cremoso, gelado e perfeito para o pré-treino.</p>
+            <div class="rec-meta"><span>🔥 210 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">24g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bowl de iogurte">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 5 min</span></div>
+            <h4>Bowl de iogurte grego com granola e frutas</h4>
+            <p>Café da manhã ou lanche da tarde cheio de proteína e sabor. Personalizável com as frutas que você tiver em casa.</p>
+            <div class="rec-meta"><span>🔥 260 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">18g de proteína por porção</span>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bowl proteico">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge">💪 Alta proteína</span><span class="rec-badge laranja">⏱ 15 min</span></div>
+            <h4>Bowl de frango com arroz integral e legumes</h4>
+            <p>O prato completo da semana: proteína, carboidrato bom e vitaminas em uma única tigela colorida e saborosa.</p>
+            <div class="rec-meta"><span>🔥 420 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+            <span class="rec-macro">40g de proteína por porção</span>
+          </div>
         </div>
       </div>
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🎂</div>
-        <div class="receita-info">
-          <h5>Bolo fit de chocolate</h5>
-          <p>Sem farinha branca, sem culpa</p>
-          <span class="receita-tag">🍫 Doce</span>
+    </div>
+
+    <!-- SABOROSAS E RÁPIDAS -->
+    <div class="tab-panel" id="tab-rapidas">
+      <div class="rec-grid">
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Arroz de couve-flor">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 15 min</span></div>
+            <h4>Arroz de couve-flor refogado</h4>
+            <p>A couve-flor ralada no lugar do arroz. Engana qualquer um! Refogada com alho, cebola e temperos — leve e deliciosa.</p>
+            <div class="rec-meta"><span>🔥 90 kcal</span><span>👤 2 porções</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Macarrão de abobrinha">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 15 min</span></div>
+            <h4>Macarrão de abobrinha ao pesto</h4>
+            <p>Abobrinha em tiras finas no lugar do macarrão, com molho pesto caseiro. Leve, verde e surpreendentemente gostoso.</p>
+            <div class="rec-meta"><span>🔥 160 kcal</span><span>👤 2 porções</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Torrada com abacate">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 10 min</span></div>
+            <h4>Torrada integral com abacate e ovo</h4>
+            <p>O clássico que nunca erra. Abacate temperado com limão e sal, ovo mexido cremoso em cima. Prático e nutritivo.</p>
+            <div class="rec-meta"><span>🔥 280 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Sopa de legumes">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 20 min</span></div>
+            <h4>Sopa de legumes express na panela</h4>
+            <p>Cenoura, chuchu, batata doce e frango. Sopinha que aquece a alma, sacia e cabe em qualquer dieta — sem segredo.</p>
+            <div class="rec-meta"><span>🔥 190 kcal</span><span>👤 3 porções</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1580466/pexels-photo-1580466.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Batata doce">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 30 min</span></div>
+            <h4>Batata doce assada com mel e canela</h4>
+            <p>Doce naturalmente, assada no forno com fio de mel e canela. Serve como lanche da tarde ou acompanhamento do almoço.</p>
+            <div class="rec-meta"><span>🔥 150 kcal</span><span>👤 2 porções</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bowl de açaí">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 10 min</span></div>
+            <h4>Bowl de açaí fit sem banana e sem guaraná</h4>
+            <p>Açaí puro batido com morango e iogurte. Mais proteico, menos açúcar, igualmente delicioso. Cobertura de granola caseira.</p>
+            <div class="rec-meta"><span>🔥 220 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Wrap">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 10 min</span></div>
+            <h4>Wrap integral de frango com legumes</h4>
+            <p>Tortilha integral, frango desfiado, cenoura ralada, pepino e cream cheese light. Prático para levar na marmita.</p>
+            <div class="rec-meta"><span>🔥 320 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Tapioca">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge roxo">⚡ Rápida</span><span class="rec-badge laranja">⏱ 10 min</span></div>
+            <h4>Tapioca recheada de frango com ervas</h4>
+            <p>A queridinha do Brasil fit! Tapioca crocante recheada com frango temperado e requeijão light. Zero glúten.</p>
+            <div class="rec-meta"><span>🔥 270 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
         </div>
       </div>
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🥗</div>
-        <div class="receita-info">
-          <h5>Salada que sacia</h5>
-          <p>Com proteína, gordura boa e sabor</p>
-          <span class="receita-tag">🥦 Almoço</span>
+    </div>
+
+    <!-- DOCES FIT -->
+    <div class="tab-panel" id="tab-doces">
+      <div class="rec-grid">
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Brigadeiro fit">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 20 min</span></div>
+            <h4>Brigadeiro fit de cacau puro</h4>
+            <p>Leite condensado de coco, cacau 100% e pasta de amendoim. Sem açúcar refinado. Ganha até o brigadeiro tradicional.</p>
+            <div class="rec-meta"><span>🔥 85 kcal</span><span>👤 por unidade</span><span>🟢 Fácil</span></div>
+          </div>
         </div>
-      </div>
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🍬</div>
-        <div class="receita-info">
-          <h5>Brigadeiro fit</h5>
-          <p>Sem açúcar refinado, sem leite condensado</p>
-          <span class="receita-tag">🎉 Festa</span>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1998920/pexels-photo-1998920.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bolo de chocolate">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 40 min</span></div>
+            <h4>Bolo de chocolate sem farinha branca</h4>
+            <p>Feito com farinha de aveia, cacau, ovos e iogurte grego. Fofo, úmido e com gosto de bolo de verdade. Toda semana na minha casa.</p>
+            <div class="rec-meta"><span>🔥 180 kcal</span><span>👤 por fatia</span><span>🟡 Médio</span></div>
+          </div>
         </div>
-      </div>
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🍞</div>
-        <div class="receita-info">
-          <h5>Pão de queijo low carb</h5>
-          <p>Crocante por fora, macio por dentro</p>
-          <span class="receita-tag">☀️ Café da manhã</span>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Cookie de aveia">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 25 min</span></div>
+            <h4>Cookie de aveia com gotas de chocolate</h4>
+            <p>Aveia, banana madura, mel e gotas de chocolate 70%. Crocante por fora, macio por dentro. Sem ovo, sem farinha.</p>
+            <div class="rec-meta"><span>🔥 110 kcal</span><span>👤 por unidade</span><span>🟢 Fácil</span></div>
+          </div>
         </div>
-      </div>
-      <div class="receita-card reveal">
-        <div class="receita-thumb">🍲</div>
-        <div class="receita-info">
-          <h5>Frango temperado da semana</h5>
-          <p>Meal prep fácil para 5 dias</p>
-          <span class="receita-tag">📅 Rotina</span>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1352459/pexels-photo-1352459.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Sorvete de banana">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 5 min</span></div>
+            <h4>Sorvete de banana com pasta de amendoim</h4>
+            <p>Só bater banana congelada no liquidificador. Cremoso como sorvete de verdade, com cobertura de pasta de amendoim.</p>
+            <div class="rec-meta"><span>🔥 140 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/3776603/pexels-photo-3776603.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bolinha de coco">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 15 min</span></div>
+            <h4>Bolinha energética de coco e tâmara</h4>
+            <p>Tâmara, coco ralado, castanha de caju e cacau. Doce natural, sem adição de açúcar. Ótima opção para vender também.</p>
+            <div class="rec-meta"><span>🔥 95 kcal</span><span>👤 por unidade</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Pudim de chia">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 5 min + geladeira</span></div>
+            <h4>Pudim de chia com leite de coco e mel</h4>
+            <p>Chia, leite de coco, baunilha e mel. Prepara na noite anterior e acorda com o café da manhã pronto. Rico em fibras.</p>
+            <div class="rec-meta"><span>🔥 160 kcal</span><span>👤 1 porção</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Mousse de maracujá">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 10 min + geladeira</span></div>
+            <h4>Mousse de maracujá com iogurte grego</h4>
+            <p>Maracujá fresco, iogurte grego e adoçante natural. Leve, ácido, cremoso. Parece sobremesa de restaurante chique.</p>
+            <div class="rec-meta"><span>🔥 120 kcal</span><span>👤 2 porções</span><span>🟢 Fácil</span></div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <img class="rec-img" src="https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Brownie de feijão">
+          <div class="rec-body">
+            <div class="rec-badges"><span class="rec-badge" style="background:#fce7f3;color:#9d174d">🍫 Doce fit</span><span class="rec-badge laranja">⏱ 35 min</span></div>
+            <h4>Brownie de feijão preto com cacau</h4>
+            <p>A receita que ninguém acredita até experimentar. Feijão preto batido com cacau, ovos e mel. Rico em proteína e fibra.</p>
+            <div class="rec-meta"><span>🔥 130 kcal</span><span>👤 por fatia</span><span>🟡 Médio</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -489,14 +673,14 @@
 <section class="preco-bg" id="comprar">
   <div class="wrap">
     <div class="reveal" style="text-align:center; margin-bottom:44px;">
-      <span class="tag" style="color:#a7f3d0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);">Investimento</span>
+      <span class="tag" style="color:#a7f3d0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);">Investimento</span>
       <h2 class="titulo" style="color:white">Comece hoje a transformação</h2>
-      <p class="subtitulo" style="color:rgba(255,255,255,.7); max-width:440px; margin:0 auto">Acesso imediato após o pagamento. Você recebe tudo pelo WhatsApp.</p>
+      <p class="subtitulo" style="color:rgba(255,255,255,.7);max-width:440px;margin:0 auto">Acesso imediato após o pagamento. Você recebe tudo pelo WhatsApp.</p>
     </div>
     <div class="preco-box reveal">
-      <div class="preco-de">De R$ 147</div>
-      <div class="preco-por">R$ 67<small> à vista no Pix</small></div>
-      <div class="preco-pix">ou 3x de R$ 24,90 no cartão</div>
+      <div class="preco-de">De R$ 97,00</div>
+      <div class="preco-por">R$ 19,99<small> à vista no Pix</small></div>
+      <div class="preco-pix">Oferta de lançamento — por tempo limitado</div>
       <div class="preco-inclui">
         <div class="preco-item">5 módulos completos em vídeo</div>
         <div class="preco-item">+30 receitas testadas e aprovadas</div>
@@ -506,11 +690,10 @@
         <div class="preco-item">Acesso ao grupo de suporte no WhatsApp</div>
         <div class="preco-item">Acesso vitalício — sem prazo para acabar</div>
       </div>
-      <a class="btn-comprar" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067%20no%20Pix" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Quero comprar agora — R$ 67
+      <a class="btn-comprar" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2019%2C99" target="_blank">
+        Quero comprar agora — R$ 19,99
       </a>
-      <p class="preco-garantia">🔒 Pagamento seguro via Pix ou cartão · <strong>Acesso imediato</strong> após confirmação</p>
+      <p class="preco-garantia">🔒 Pagamento via Pix · <strong>Acesso imediato</strong> após confirmação · Garantia de 7 dias</p>
     </div>
   </div>
 </section>
@@ -551,10 +734,9 @@
 <section class="cta-final">
   <div class="reveal">
     <h2>Sua transformação começa<br>na próxima refeição</h2>
-    <p>Mais de 30 receitas testadas, método real e suporte para te ajudar em cada passo. Por apenas R$ 67.</p>
-    <a class="btn-hero" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067" target="_blank">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      Garantir minha vaga — R$ 67
+    <p>Mais de 30 receitas testadas, método real e suporte para te ajudar em cada passo. Por apenas R$ 19,99.</p>
+    <a class="btn-hero" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2019%2C99" target="_blank">
+      Garantir minha vaga — R$ 19,99
     </a>
   </div>
 </section>
@@ -564,16 +746,11 @@
   <p>© 2026 Amor de Cozinha — Todos os direitos reservados · Fabrizia Gonsales</p>
 </footer>
 
-<!-- ══ WPP FLUTUANTE ══ -->
-<a class="wpp-float" href="https://wa.me/5551997471429?text=Olá!%20Vi%20o%20curso%20Amor%20de%20Cozinha%20e%20quero%20saber%20mais" target="_blank" title="Falar no WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-</a>
-
 <script>
 // ── Scroll reveal
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-},{threshold:.1});
+},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // ── FAQ accordion
@@ -582,6 +759,14 @@ function toggleFaq(el) {
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
+}
+
+// ── Tabs de receitas
+function trocarTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('ativo'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('ativo'));
+  document.getElementById('tab-'+id).classList.add('ativo');
+  btn.classList.add('ativo');
 }
 </script>
 </body>
