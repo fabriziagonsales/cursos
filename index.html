@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor de Cozinha — Como emagreci 13 kg sem abrir mão do sabor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde:    #2d6a4f;
+    --verde2:   #1b4332;
+    --menta:    #52b788;
+    --claro:    #d8f3dc;
+    --creme:    #fdf6ec;
+    --laranja:  #e07b39;
+    --texto:    #1a1a2e;
+    --cinza:    #6b7280;
+    --branco:   #ffffff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; color:var(--texto); background:var(--branco); }
+
+  /* ════ TOPO ════ */
+  .topo {
+    background:var(--verde2);
+    text-align:center; padding:12px 20px;
+    font-size:.82rem; color:white; font-weight:500; letter-spacing:.03em;
+  }
+  .topo strong { color:#a7f3d0; }
+
+  /* ════ HERO ════ */
+  .hero {
+    background:linear-gradient(160deg, #f0fdf4 0%, #d8f3dc 50%, #fdf6ec 100%);
+    padding:70px 24px 80px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero-blob {
+    position:absolute; border-radius:50%; filter:blur(70px); opacity:.25; pointer-events:none;
+  }
+  .hero-blob.b1 { width:400px; height:400px; background:var(--menta); top:-100px; right:-80px; }
+  .hero-blob.b2 { width:350px; height:350px; background:var(--laranja); bottom:-60px; left:-60px; }
+  .hero-content { position:relative; max-width:700px; margin:0 auto; }
+  .hero-icon {
+    width:90px; height:90px; border-radius:50%; margin:0 auto 24px;
+    background:linear-gradient(135deg,var(--verde),var(--menta));
+    display:flex; align-items:center; justify-content:center; font-size:2.6rem;
+    box-shadow:0 8px 32px rgba(45,106,79,.3);
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:7px; background:white;
+    border:1px solid #bbf7d0; border-radius:20px; padding:6px 16px;
+    font-size:.78rem; font-weight:600; color:var(--verde); margin-bottom:24px;
+    box-shadow:0 2px 10px rgba(45,106,79,.1);
+  }
+  .hero-badge span { width:7px; height:7px; border-radius:50%; background:var(--laranja); display:inline-block; animation:blink 1.8s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-size:clamp(2rem,5.5vw,3.4rem);
+    font-weight:700; color:var(--verde2); line-height:1.15; margin-bottom:20px;
+  }
+  .hero h1 em { font-style:italic; color:var(--laranja); }
+  .hero p { font-size:1.05rem; color:var(--cinza); line-height:1.75; max-width:540px; margin:0 auto 32px; }
+  .btn-hero {
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,var(--verde),var(--menta));
+    color:white; font-weight:700; font-size:1rem; padding:0 36px; height:56px;
+    border-radius:14px; border:none; cursor:pointer; text-decoration:none;
+    font-family:'Inter',sans-serif; box-shadow:0 8px 28px rgba(45,106,79,.35);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-hero:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(45,106,79,.45); }
+  .hero-prova { margin-top:36px; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .hero-prova-item { display:flex; align-items:center; gap:6px; font-size:.8rem; color:var(--cinza); font-weight:500; }
+  .hero-prova-item svg { flex-shrink:0; }
+
+  /* ════ SEÇÕES ════ */
+  section { padding:80px 24px; }
+  .wrap { max-width:900px; margin:0 auto; }
+  .wrap-sm { max-width:680px; margin:0 auto; }
+  .tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--verde); background:var(--claro); border-radius:20px; padding:4px 14px; margin-bottom:14px; }
+  .titulo { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; color:var(--verde2); line-height:1.2; margin-bottom:14px; }
+  .subtitulo { font-size:1rem; color:var(--cinza); line-height:1.7; }
+
+  /* ════ HISTÓRIA ════ */
+  .historia-bg { background:var(--creme); }
+  .historia-box {
+    background:white; border-radius:24px; padding:48px 40px;
+    border:1.5px solid #e5e7eb; box-shadow:0 8px 32px rgba(0,0,0,.06);
+    max-width:720px; margin:0 auto;
+  }
+  .historia-box p { font-size:.96rem; color:#374151; line-height:1.85; margin-bottom:18px; }
+  .historia-box p:last-child { margin-bottom:0; }
+  .historia-box strong { color:var(--verde2); }
+  .historia-destaque {
+    background:var(--claro); border-left:4px solid var(--menta);
+    border-radius:0 12px 12px 0; padding:16px 20px; margin:24px 0;
+    font-size:.95rem; color:var(--verde2); font-weight:600; line-height:1.6;
+  }
+
+  /* ════ O QUE VOCÊ VAI APRENDER ════ */
+  .aprender-bg { background:white; }
+  .modulos { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin-top:44px; }
+  .modulo {
+    background:var(--creme); border-radius:16px; padding:28px 24px;
+    border:1.5px solid #e5e7eb; transition:transform .2s, box-shadow .2s;
+  }
+  .modulo:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(45,106,79,.1); }
+  .modulo-num { font-size:.72rem; font-weight:700; color:var(--menta); letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
+  .modulo h4 { font-size:1rem; font-weight:700; color:var(--verde2); margin-bottom:10px; }
+  .modulo ul { list-style:none; display:flex; flex-direction:column; gap:7px; }
+  .modulo ul li { font-size:.83rem; color:var(--cinza); display:flex; align-items:flex-start; gap:8px; line-height:1.5; }
+  .modulo ul li::before { content:'✓'; color:var(--menta); font-weight:800; flex-shrink:0; margin-top:1px; }
+
+  /* ════ PARA QUEM É ════ */
+  .pra-quem-bg { background:linear-gradient(160deg,#f0fdf4,#d8f3dc); }
+  .pq-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:40px; }
+  .pq-card {
+    background:white; border-radius:14px; padding:22px 20px;
+    display:flex; align-items:flex-start; gap:14px; border:1px solid #bbf7d0;
+  }
+  .pq-icon { font-size:1.8rem; flex-shrink:0; margin-top:2px; }
+  .pq-card p { font-size:.88rem; color:#374151; line-height:1.6; }
+
+  /* ════ RECEITAS AMOSTRA ════ */
+  .receitas-bg { background:var(--creme); }
+  .receitas-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-top:40px; }
+  .receita-card {
+    background:white; border-radius:14px; overflow:hidden;
+    border:1.5px solid #e5e7eb; transition:transform .2s;
+  }
+  .receita-card:hover { transform:translateY(-3px); }
+  .receita-thumb {
+    height:130px; display:flex; align-items:center; justify-content:center;
+    font-size:3.2rem; background:var(--claro);
+  }
+  .receita-info { padding:14px; }
+  .receita-info h5 { font-size:.88rem; font-weight:700; color:var(--verde2); margin-bottom:4px; }
+  .receita-info p { font-size:.75rem; color:var(--cinza); }
+  .receita-tag { display:inline-block; font-size:.65rem; font-weight:700; border-radius:20px; padding:2px 9px; margin-top:6px; background:var(--claro); color:var(--verde); }
+
+  /* ════ RESULTADOS ════ */
+  .resultados-bg { background:white; }
+  .numeros { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin-top:44px; }
+  .numero { text-align:center; }
+  .numero-val { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; color:var(--verde); line-height:1; }
+  .numero-label { font-size:.78rem; color:var(--cinza); font-weight:500; margin-top:6px; }
+  .depos { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin-top:44px; }
+  .depo {
+    background:var(--creme); border-radius:16px; padding:24px;
+    border:1.5px solid #e5e7eb; position:relative;
+  }
+  .depo::before { content:'"'; position:absolute; top:10px; right:18px; font-size:4.5rem; line-height:1; color:#d1fae5; font-family:'Playfair Display',serif; pointer-events:none; }
+  .depo-stars { color:#f59e0b; margin-bottom:10px; font-size:.85rem; }
+  .depo p { font-size:.86rem; color:#374151; line-height:1.7; font-style:italic; margin-bottom:14px; }
+  .depo-autor { font-size:.8rem; font-weight:700; color:var(--verde2); }
+  .depo-autor span { font-weight:400; color:var(--cinza); }
+
+  /* ════ PREÇO ════ */
+  .preco-bg { background:linear-gradient(160deg,var(--verde2),#1b4332 60%,#2d6a4f); }
+  .preco-box {
+    background:white; border-radius:28px; padding:52px 44px; text-align:center;
+    max-width:560px; margin:0 auto; box-shadow:0 24px 64px rgba(0,0,0,.2);
+  }
+  .preco-de { font-size:.88rem; color:var(--cinza); text-decoration:line-through; margin-bottom:4px; }
+  .preco-por { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:700; color:var(--verde); line-height:1; }
+  .preco-por small { font-family:'Inter',sans-serif; font-size:.8rem; font-weight:500; color:var(--cinza); }
+  .preco-pix { font-size:.82rem; font-weight:600; color:var(--menta); margin:4px 0 24px; }
+  .preco-inclui { display:flex; flex-direction:column; gap:10px; text-align:left; margin:28px 0 32px; }
+  .preco-item { display:flex; align-items:center; gap:10px; font-size:.88rem; color:#374151; }
+  .preco-item::before { content:'✓'; width:22px; height:22px; border-radius:50%; background:var(--claro); color:var(--verde); font-size:.68rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .btn-comprar {
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:linear-gradient(135deg,var(--verde),var(--menta));
+    color:white; font-weight:700; font-size:1.05rem; padding:18px 32px;
+    border-radius:14px; border:none; cursor:pointer; text-decoration:none;
+    font-family:'Inter',sans-serif; box-shadow:0 8px 28px rgba(45,106,79,.4);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-comprar:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(45,106,79,.5); }
+  .preco-garantia { margin-top:20px; font-size:.78rem; color:var(--cinza); }
+  .preco-garantia strong { color:var(--verde2); }
+
+  /* ════ FAQ ════ */
+  .faq-bg { background:var(--creme); }
+  .faq-list { display:flex; flex-direction:column; gap:14px; margin-top:44px; max-width:680px; margin-left:auto; margin-right:auto; }
+  .faq-item { background:white; border-radius:14px; border:1.5px solid #e5e7eb; overflow:hidden; }
+  .faq-q {
+    padding:18px 22px; font-weight:600; font-size:.92rem; color:var(--verde2);
+    cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+    user-select:none;
+  }
+  .faq-q:hover { background:#f9fafb; }
+  .faq-q .seta { transition:transform .3s; font-size:.8rem; color:var(--cinza); }
+  .faq-item.open .faq-q .seta { transform:rotate(180deg); }
+  .faq-a { padding:0 22px; max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s; font-size:.88rem; color:var(--cinza); line-height:1.7; }
+  .faq-item.open .faq-a { max-height:200px; padding:0 22px 18px; }
+
+  /* ════ CTA FINAL ════ */
+  .cta-final { background:var(--verde2); text-align:center; padding:80px 24px; }
+  .cta-final h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:white; margin-bottom:14px; line-height:1.2; }
+  .cta-final p { color:rgba(255,255,255,.7); font-size:1rem; line-height:1.7; max-width:480px; margin:0 auto 32px; }
+
+  /* ════ FOOTER ════ */
+  footer { background:#0f2d1a; padding:28px 24px; text-align:center; }
+  footer p { font-size:.78rem; color:rgba(255,255,255,.35); }
+
+  /* ════ WPP FLUTUANTE ════ */
+  .wpp-float {
+    position:fixed; bottom:24px; right:24px; z-index:200;
+    width:56px; height:56px; border-radius:50%; background:#25d366; border:none;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    box-shadow:0 4px 20px rgba(37,211,102,.45); text-decoration:none;
+    animation:pulse-wpp 2.5s infinite;
+  }
+  @keyframes pulse-wpp { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)} 50%{box-shadow:0 4px 32px rgba(37,211,102,.7)} }
+
+  /* ════ REVEAL ════ */
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  /* ════ RESPONSIVE ════ */
+  @media(max-width:640px) {
+    .hero { padding:50px 20px 60px; }
+    section { padding:60px 20px; }
+    .historia-box { padding:30px 22px; }
+    .preco-box { padding:36px 24px; }
+    .wpp-float { bottom:18px; right:18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ TOPO ══ -->
+<div class="topo">
+  Oferta por tempo limitado — <strong>R$ 67 no Pix</strong> com acesso vitalício 🌿
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-content">
+    <div class="hero-icon">🥗</div>
+    <div class="hero-badge"><span></span> Método real, resultado real</div>
+    <h1>Como emagreci <em>13 kg</em> sem abrir mão do sabor</h1>
+    <p>Aprenda as receitas saudáveis e gostosas que transformaram minha alimentação — sem dieta sofrida, sem passar fome e sem largar o que você ama comer.</p>
+    <a class="btn-hero" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Quero começar agora — R$ 67
+    </a>
+    <div class="hero-prova">
+      <div class="hero-prova-item">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#2d6a4f" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Acesso vitalício
+      </div>
+      <div class="hero-prova-item">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#2d6a4f" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        +30 receitas testadas
+      </div>
+      <div class="hero-prova-item">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#2d6a4f" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Método real, não teoria
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HISTÓRIA ══ -->
+<section class="historia-bg">
+  <div class="wrap-sm">
+    <div class="reveal" style="text-align:center; margin-bottom:40px;">
+      <span class="tag">Minha história</span>
+      <h2 class="titulo">De quem cozinha com amor e já viveu na pele</h2>
+    </div>
+    <div class="historia-box reveal">
+      <p>Sempre amei cozinhar. A cozinha pra mim nunca foi só um lugar de fazer comida — é onde eu cuido das pessoas que amo. Mas por muito tempo, esse amor pela cozinha também me fez ganhar peso sem perceber.</p>
+      <p>Tentei várias dietas. Passei fome, cortei tudo que gostava, me senti frustrada. E o resultado? Voltava ao peso de antes em poucas semanas.</p>
+      <div class="historia-destaque">
+        Foi quando percebi que o problema não era o que eu comia — era <strong>como eu preparava</strong>. Comecei a adaptar minhas receitas favoritas para versões mais saudáveis, sem perder o sabor.
+      </div>
+      <p>Resultado? <strong>Perdi 13 kg</strong> comendo bem, com prazer, sem passar fome. E o melhor: mantive o peso porque não foi dieta — foi uma mudança real na forma de cozinhar.</p>
+      <p>Neste curso eu compartilho tudo que aprendi: as substituições que funcionam, as receitas que viraram rotina na minha casa e o jeito de comer saudável sem sofrimento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ O QUE VOCÊ VAI APRENDER ══ -->
+<section class="aprender-bg" id="conteudo">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:8px;">
+      <span class="tag">Conteúdo do curso</span>
+      <h2 class="titulo">O que você vai aprender</h2>
+      <p class="subtitulo" style="max-width:500px; margin:0 auto">Módulos práticos, direto ao ponto, com receitas que você já pode fazer hoje.</p>
+    </div>
+    <div class="modulos">
+      <div class="modulo reveal">
+        <div class="modulo-num">Módulo 1</div>
+        <h4>🌱 A base da alimentação saudável</h4>
+        <ul>
+          <li>Como ler rótulos sem complicação</li>
+          <li>Substituições simples que mudam tudo</li>
+          <li>Montando um cardápio semanal prático</li>
+          <li>Compras inteligentes no mercado</li>
+        </ul>
+      </div>
+      <div class="modulo reveal">
+        <div class="modulo-num">Módulo 2</div>
+        <h4>🥣 Café da manhã sem culpa</h4>
+        <ul>
+          <li>Bolos fit que parecem os originais</li>
+          <li>Vitaminas e smoothies que saciam</li>
+          <li>Pão de queijo low carb</li>
+          <li>Panqueca proteica na frigideira</li>
+        </ul>
+      </div>
+      <div class="modulo reveal">
+        <div class="modulo-num">Módulo 3</div>
+        <h4>🍱 Almoço gostoso e leve</h4>
+        <ul>
+          <li>Arroz de couve-flor que engana</li>
+          <li>Proteínas temperadas do jeito certo</li>
+          <li>Saladas que você vai querer comer</li>
+          <li>Molhos caseiros sem conservante</li>
+        </ul>
+      </div>
+      <div class="modulo reveal">
+        <div class="modulo-num">Módulo 4</div>
+        <h4>🍫 Doces e lanches sem sofrimento</h4>
+        <ul>
+          <li>Brigadeiro fit sem açúcar refinado</li>
+          <li>Docinhos para festas e venda</li>
+          <li>Snacks para o dia a dia</li>
+          <li>Sobremesas que não pesam na balança</li>
+        </ul>
+      </div>
+      <div class="modulo reveal">
+        <div class="modulo-num">Módulo 5</div>
+        <h4>📅 Rotina sustentável</h4>
+        <ul>
+          <li>Como manter o peso sem sofrimento</li>
+          <li>Meal prep: prepare uma semana em 2h</li>
+          <li>O que fazer quando bater a vontade</li>
+          <li>Minha rotina que funciona até hoje</li>
+        </ul>
+      </div>
+      <div class="modulo reveal">
+        <div class="modulo-num">Bônus</div>
+        <h4>🎁 Lista de compras + PDF de receitas</h4>
+        <ul>
+          <li>Lista de compras semanal pronta</li>
+          <li>PDF com todas as receitas do curso</li>
+          <li>Tabela de substituições rápidas</li>
+          <li>Acesso ao grupo de suporte no WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARA QUEM É ══ -->
+<section class="pra-quem-bg">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:8px;">
+      <span class="tag">Para quem é</span>
+      <h2 class="titulo">Este curso é pra você que...</h2>
+    </div>
+    <div class="pq-grid">
+      <div class="pq-card reveal">
+        <div class="pq-icon">😔</div>
+        <p>Já tentou várias dietas e não conseguiu manter o peso perdido</p>
+      </div>
+      <div class="pq-card reveal">
+        <div class="pq-icon">🍕</div>
+        <p>Ama comer bem e não quer abrir mão do sabor para emagrecer</p>
+      </div>
+      <div class="pq-card reveal">
+        <div class="pq-icon">⏰</div>
+        <p>Tem pouco tempo e precisa de receitas rápidas e práticas para o dia a dia</p>
+      </div>
+      <div class="pq-card reveal">
+        <div class="pq-icon">👨‍👩‍👧</div>
+        <p>Quer cozinhar mais saudável para a família inteira sem fazer comida separada</p>
+      </div>
+      <div class="pq-card reveal">
+        <div class="pq-icon">💸</div>
+        <p>Quer comer saudável sem gastar uma fortuna em produtos específicos</p>
+      </div>
+      <div class="pq-card reveal">
+        <div class="pq-icon">🎯</div>
+        <p>Busca uma mudança real de hábitos, não uma dieta temporária de sofrimento</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RECEITAS AMOSTRA ══ -->
+<section class="receitas-bg">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:8px;">
+      <span class="tag">Exemplos de receitas</span>
+      <h2 class="titulo">Uma amostra do que você vai aprender</h2>
+    </div>
+    <div class="receitas-grid">
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🥞</div>
+        <div class="receita-info">
+          <h5>Panqueca proteica</h5>
+          <p>Pronta em 10 minutos, rica em proteína</p>
+          <span class="receita-tag">☀️ Café da manhã</span>
+        </div>
+      </div>
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🎂</div>
+        <div class="receita-info">
+          <h5>Bolo fit de chocolate</h5>
+          <p>Sem farinha branca, sem culpa</p>
+          <span class="receita-tag">🍫 Doce</span>
+        </div>
+      </div>
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🥗</div>
+        <div class="receita-info">
+          <h5>Salada que sacia</h5>
+          <p>Com proteína, gordura boa e sabor</p>
+          <span class="receita-tag">🥦 Almoço</span>
+        </div>
+      </div>
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🍬</div>
+        <div class="receita-info">
+          <h5>Brigadeiro fit</h5>
+          <p>Sem açúcar refinado, sem leite condensado</p>
+          <span class="receita-tag">🎉 Festa</span>
+        </div>
+      </div>
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🍞</div>
+        <div class="receita-info">
+          <h5>Pão de queijo low carb</h5>
+          <p>Crocante por fora, macio por dentro</p>
+          <span class="receita-tag">☀️ Café da manhã</span>
+        </div>
+      </div>
+      <div class="receita-card reveal">
+        <div class="receita-thumb">🍲</div>
+        <div class="receita-info">
+          <h5>Frango temperado da semana</h5>
+          <p>Meal prep fácil para 5 dias</p>
+          <span class="receita-tag">📅 Rotina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESULTADOS / DEPOIMENTOS ══ -->
+<section class="resultados-bg">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <span class="tag">Resultados</span>
+      <h2 class="titulo">Comida boa que transforma</h2>
+    </div>
+    <div class="numeros reveal">
+      <div class="numero"><div class="numero-val">13 kg</div><div class="numero-label">perdidos com método real</div></div>
+      <div class="numero"><div class="numero-val">+30</div><div class="numero-label">receitas no curso</div></div>
+      <div class="numero"><div class="numero-val">0</div><div class="numero-label">dietas de sofrimento</div></div>
+    </div>
+    <div class="depos">
+      <div class="depo reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p>Nunca achei que ia conseguir comer saudável e ainda achar gostoso. As receitas são incríveis e super práticas. Já perdi 5 kg seguindo o método dela!</p>
+        <div class="depo-autor">Camila R. <span>— Perdeu 5 kg</span></div>
+      </div>
+      <div class="depo reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p>O bolo fit de chocolate virou rotina aqui em casa. Meus filhos amam e eu como sem culpa. Melhor investimento que fiz esse ano.</p>
+        <div class="depo-autor">Patrícia S. <span>— Mãe de 2 filhos</span></div>
+      </div>
+      <div class="depo reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p>Sou péssima na cozinha mas as receitas são tão bem explicadas que consegui fazer tudo. Já mudei minha alimentação completamente sem sofrer!</p>
+        <div class="depo-autor">Fernanda L. <span>— Iniciante na cozinha</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PREÇO ══ -->
+<section class="preco-bg" id="comprar">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:44px;">
+      <span class="tag" style="color:#a7f3d0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);">Investimento</span>
+      <h2 class="titulo" style="color:white">Comece hoje a transformação</h2>
+      <p class="subtitulo" style="color:rgba(255,255,255,.7); max-width:440px; margin:0 auto">Acesso imediato após o pagamento. Você recebe tudo pelo WhatsApp.</p>
+    </div>
+    <div class="preco-box reveal">
+      <div class="preco-de">De R$ 147</div>
+      <div class="preco-por">R$ 67<small> à vista no Pix</small></div>
+      <div class="preco-pix">ou 3x de R$ 24,90 no cartão</div>
+      <div class="preco-inclui">
+        <div class="preco-item">5 módulos completos em vídeo</div>
+        <div class="preco-item">+30 receitas testadas e aprovadas</div>
+        <div class="preco-item">PDF com todas as receitas para imprimir</div>
+        <div class="preco-item">Lista de compras semanal pronta</div>
+        <div class="preco-item">Tabela de substituições rápidas</div>
+        <div class="preco-item">Acesso ao grupo de suporte no WhatsApp</div>
+        <div class="preco-item">Acesso vitalício — sem prazo para acabar</div>
+      </div>
+      <a class="btn-comprar" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067%20no%20Pix" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Quero comprar agora — R$ 67
+      </a>
+      <p class="preco-garantia">🔒 Pagamento seguro via Pix ou cartão · <strong>Acesso imediato</strong> após confirmação</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-bg">
+  <div class="wrap-sm">
+    <div class="reveal" style="text-align:center; margin-bottom:8px;">
+      <span class="tag">Dúvidas</span>
+      <h2 class="titulo">Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Como vou receber o curso? <span class="seta">▼</span></div>
+        <div class="faq-a">Após o pagamento, você entra em contato pelo WhatsApp e recebe acesso imediato a todos os módulos e materiais. Tudo enviado diretamente pelo WhatsApp ou link de acesso.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Precisa ter experiência na cozinha? <span class="seta">▼</span></div>
+        <div class="faq-a">Não! As receitas são explicadas passo a passo de forma simples e prática. Se você sabe fritar um ovo, consegue fazer tudo do curso.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Vou precisar comprar ingredientes caros? <span class="seta">▼</span></div>
+        <div class="faq-a">Não. O curso foi pensado para usar ingredientes acessíveis, encontrados em qualquer mercado e que não pesam no bolso. Comer saudável não precisa ser caro.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Por quanto tempo terei acesso? <span class="seta">▼</span></div>
+        <div class="faq-a">O acesso é vitalício! Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras do conteúdo.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">E se eu não gostar? <span class="seta">▼</span></div>
+        <div class="faq-a">Se em 7 dias você não ficar satisfeita, é só me chamar no WhatsApp e faço o reembolso completo. Sem burocracia e sem perguntas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="cta-final">
+  <div class="reveal">
+    <h2>Sua transformação começa<br>na próxima refeição</h2>
+    <p>Mais de 30 receitas testadas, método real e suporte para te ajudar em cada passo. Por apenas R$ 67.</p>
+    <a class="btn-hero" href="https://wa.me/5551997471429?text=Olá!%20Quero%20comprar%20o%20curso%20Amor%20de%20Cozinha%20por%20R%24%2067" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Garantir minha vaga — R$ 67
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>© 2026 Amor de Cozinha — Todos os direitos reservados · Fabrizia Gonsales</p>
+</footer>
+
+<!-- ══ WPP FLUTUANTE ══ -->
+<a class="wpp-float" href="https://wa.me/5551997471429?text=Olá!%20Vi%20o%20curso%20Amor%20de%20Cozinha%20e%20quero%20saber%20mais" target="_blank" title="Falar no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.529 5.857L0 24l6.335-1.509A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.5-5.1-1.373l-.366-.217-3.76.896.953-3.667-.237-.381A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// ── Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── FAQ accordion
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
