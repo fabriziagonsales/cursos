@@ -227,6 +227,68 @@
   .reveal.visible { opacity:1; transform:none; }
 
   /* ════ RESPONSIVE ════ */
+  /* ════ NAVBAR ════ */
+  .navbar {
+    position:sticky; top:0; z-index:200; background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px); border-bottom:1px solid var(--borda);
+    padding:0 32px; height:60px; display:flex; align-items:center; justify-content:space-between;
+    transition:box-shadow .3s;
+  }
+  .navbar.scrolled { box-shadow:0 4px 20px rgba(44,44,44,.08); }
+  .nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--p2); text-decoration:none; }
+  .nav-links { display:flex; align-items:center; gap:24px; }
+  .nav-links a { font-size:.83rem; font-weight:500; color:var(--cinza); text-decoration:none; transition:color .2s; }
+  .nav-links a:hover { color:var(--p2); }
+  .nav-btn {
+    background:var(--p2); color:white; font-size:.82rem; font-weight:600;
+    padding:8px 18px; border-radius:6px; text-decoration:none;
+    transition:background .2s; letter-spacing:.03em;
+  }
+  .nav-btn:hover { background:#111; color:white; }
+  @media(max-width:640px) { .nav-links { display:none; } .navbar { padding:0 20px; } }
+
+  /* ════ COUNTDOWN ════ */
+  .countdown { display:inline-flex; align-items:center; gap:6px; margin-left:10px; }
+  .cd-num {
+    background:rgba(255,255,255,.15); border-radius:4px;
+    padding:2px 7px; font-weight:700; font-size:.88rem; min-width:28px; text-align:center;
+  }
+  .cd-sep { opacity:.6; font-size:.8rem; }
+
+  /* ════ NÃO VAI PRECISAR ════ */
+  .nao-bg { background:var(--p2); }
+  .nao-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:44px; }
+  .nao-item {
+    display:flex; align-items:flex-start; gap:14px;
+    background:rgba(255,255,255,.06); border-radius:10px; padding:20px 18px;
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .nao-x { font-size:1.4rem; flex-shrink:0; opacity:.7; }
+  .nao-item p { font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.6; }
+  .nao-item strong { color:white; }
+
+  /* ════ CTA FLUTUANTE ════ */
+  .cta-meio {
+    text-align:center; padding:48px 24px; background:var(--claro);
+    border-top:1px solid var(--borda); border-bottom:1px solid var(--borda);
+  }
+  .cta-meio p { font-size:.9rem; color:var(--cinza); margin-bottom:18px; }
+
+  /* ════ DEPO COM FOTO ════ */
+  .depo-header { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .depo-foto { width:46px; height:46px; border-radius:50%; object-fit:cover; flex-shrink:0; border:2px solid var(--borda); }
+  .depo-info .depo-autor { font-size:.82rem; font-weight:700; color:var(--p2); }
+  .depo-info .depo-cargo { font-size:.74rem; color:var(--cinza); }
+
+  /* ════ VALOR ANCORAGEM ════ */
+  .valor-lista { display:flex; flex-direction:column; gap:10px; margin:20px 0 28px; text-align:left; }
+  .valor-item { display:flex; justify-content:space-between; align-items:center; font-size:.83rem; padding:10px 14px; background:var(--creme); border-radius:6px; border:1px solid var(--borda); }
+  .valor-item span:first-child { color:#444; }
+  .valor-item span:last-child { font-weight:700; color:var(--p2); text-decoration:line-through; opacity:.55; }
+  .valor-total { display:flex; justify-content:space-between; align-items:center; font-size:.9rem; padding:12px 14px; background:var(--claro); border-radius:6px; border:1px solid var(--borda); font-weight:700; }
+  .valor-total span:last-child { color:var(--p2); }
+  .valor-divider { border:none; border-top:1px dashed var(--borda); margin:6px 0; }
+
   @media(max-width:640px) {
     .hero { padding:50px 20px 60px; }
     section { padding:60px 20px; }
@@ -234,6 +296,7 @@
     .preco-box { padding:36px 24px; }
     .tabs { gap:8px; }
     .tab-btn { padding:8px 16px; font-size:.82rem; }
+    .nao-grid { grid-template-columns:1fr 1fr; }
   }
 </style>
 </head>
@@ -241,8 +304,24 @@
 
 <!-- ══ TOPO ══ -->
 <div class="topo">
-  Oferta de lançamento — <strong>R$ 19,99 no Pix</strong> com acesso vitalício 🌿
+  🌿 Oferta de lançamento — <strong>R$ 19,99 no Pix</strong> — encerra em
+  <span class="countdown">
+    <span class="cd-num" id="cdH">47</span><span class="cd-sep">h</span>
+    <span class="cd-num" id="cdM">59</span><span class="cd-sep">m</span>
+    <span class="cd-num" id="cdS">59</span><span class="cd-sep">s</span>
+  </span>
 </div>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="#">Amor de Cozinha</a>
+  <div class="nav-links">
+    <a href="#conteudo">Conteúdo</a>
+    <a href="#receitas">Receitas</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#comprar" class="nav-btn">Comprar — R$ 19,99</a>
+  </div>
+</nav>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -281,6 +360,14 @@
       <h2 class="titulo">De quem cozinha com amor e já viveu na pele</h2>
     </div>
     <div class="historia-box reveal">
+      <div style="display:flex;align-items:center;gap:20px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--borda);">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--claro);border:2px solid var(--borda);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:2.2rem;">👩</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--p2);">Fabrizia Gonsales</div>
+          <div style="font-size:.8rem;color:var(--cinza);margin-top:3px;">Criadora do curso · Perdeu 13 kg com método próprio</div>
+          <div style="margin-top:8px;font-size:.78rem;color:var(--ouro);font-weight:600;letter-spacing:.04em;">✦ MÃE · EMPREENDEDORA · APAIXONADA POR COZINHAR</div>
+        </div>
+      </div>
       <p>Sempre amei cozinhar. A cozinha pra mim nunca foi só um lugar de fazer comida — é onde eu cuido das pessoas que amo. Mas a vida me colocou em situações que me fizeram perder o controle sem eu perceber.</p>
       <p>Durante a gestação, sofria de ansiedade e depressão. Não tinha uma boa rede de apoio — nem durante a gravidez, nem depois. Comia muito, sem perceber, porque era a única forma que eu encontrava de lidar com tudo.</p>
       <div class="historia-destaque">
@@ -291,6 +378,12 @@
     </div>
   </div>
 </section>
+
+<!-- ══ CTA MEIO 1 ══ -->
+<div class="cta-meio">
+  <p>Quer aprender esse método e transformar sua alimentação?</p>
+  <a class="btn-hero" href="#comprar">Quero o curso por R$ 19,99 →</a>
+</div>
 
 <!-- ══ O QUE VOCÊ VAI APRENDER ══ -->
 <section class="aprender-bg" id="conteudo">
@@ -379,6 +472,24 @@
       <div class="pq-card reveal"><div class="pq-icon">👨‍👩‍👧</div><p>Quer cozinhar mais saudável para a família inteira sem fazer comida separada</p></div>
       <div class="pq-card reveal"><div class="pq-icon">💸</div><p>Quer comer saudável sem gastar uma fortuna em produtos específicos</p></div>
       <div class="pq-card reveal"><div class="pq-icon">🎯</div><p>Busca uma mudança real de hábitos, não uma dieta temporária de sofrimento</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NÃO VAI PRECISAR ══ -->
+<section class="nao-bg">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <span class="tag" style="color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);border:none;">Sem sofrimento</span>
+      <h2 class="titulo" style="color:white;">Com este curso você <em style="font-style:italic;color:var(--ouro);">não</em> vai precisar de...</h2>
+    </div>
+    <div class="nao-grid">
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Academia ou exercício</strong> — a mudança começa dentro da cozinha, não na esteira</p></div>
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Suplementos caros</strong> — nenhuma receita depende de whey, termogênico ou shake importado</p></div>
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Dieta radical</strong> — você vai comer de verdade, com sabor, sem contar caloria por caloria</p></div>
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Passar fome</strong> — as receitas são pensadas para saciar e ainda serem gostosas</p></div>
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Ingredientes difíceis</strong> — tudo encontrado em qualquer mercado do bairro</p></div>
+      <div class="nao-item reveal"><div class="nao-x">🚫</div><p><strong>Experiência na cozinha</strong> — cada receita é explicada passo a passo do zero</p></div>
     </div>
   </div>
 </section>
@@ -642,8 +753,14 @@
   </div>
 </section>
 
+<!-- ══ CTA MEIO 2 ══ -->
+<div class="cta-meio">
+  <p>Mais de 30 receitas testadas esperando por você — por apenas R$ 19,99</p>
+  <a class="btn-hero" href="#comprar">Garantir acesso agora →</a>
+</div>
+
 <!-- ══ RESULTADOS / DEPOIMENTOS ══ -->
-<section class="resultados-bg">
+<section class="resultados-bg" id="depoimentos">
   <div class="wrap">
     <div class="reveal" style="text-align:center;">
       <span class="tag">Resultados</span>
@@ -658,32 +775,50 @@
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>Comecei o curso sem acreditar muito, porque já tinha tentado de tudo. Mas as receitas são diferentes — são comidas de verdade, que a família toda come. Em dois meses perdi 4 kg sem passar fome nenhum dia.</p>
-        <div class="depo-autor">Camila R. <span>— 2 meses de curso · Perdeu 4 kg</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Camila">
+          <div class="depo-info"><div class="depo-autor">Camila R.</div><div class="depo-cargo">2 meses de curso · Perdeu 4 kg</div></div>
+        </div>
       </div>
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>Minha maior dificuldade era o doce à noite. O brownie de feijão preto e o brigadeiro fit resolveram isso. Hoje não sinto mais aquela vontade desesperada de comer besteira depois do jantar.</p>
-        <div class="depo-autor">Patrícia S. <span>— Mãe de 2 filhos</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Patrícia">
+          <div class="depo-info"><div class="depo-autor">Patrícia S.</div><div class="depo-cargo">Mãe de 2 filhos</div></div>
+        </div>
       </div>
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>Trabalho o dia todo e não tenho tempo pra cozinhar nada elaborado. As receitas rápidas do curso salvaram minha semana. Faço o meal prep no domingo e como bem até sexta.</p>
-        <div class="depo-autor">Fernanda L. <span>— Profissional com rotina intensa</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Fernanda">
+          <div class="depo-info"><div class="depo-autor">Fernanda L.</div><div class="depo-cargo">Profissional com rotina intensa</div></div>
+        </div>
       </div>
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>Sempre cozinhei normal e não sabia fazer nada fit. Achei que ia ser difícil, mas as explicações são muito claras. Já ensinei o bolo de chocolate pra minha mãe e ela amou.</p>
-        <div class="depo-autor">Ana C. <span>— Iniciante na cozinha saudável</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/1987301/pexels-photo-1987301.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Ana">
+          <div class="depo-info"><div class="depo-autor">Ana C.</div><div class="depo-cargo">Iniciante na cozinha saudável</div></div>
+        </div>
       </div>
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>O que me convenceu foi o preço. Por R$ 19,99 achei que não ia ser nada, mas o conteúdo é completo de verdade. Só as receitas de proteína já valeram muito mais do que paguei.</p>
-        <div class="depo-autor">Roberta M. <span>— Academia 3x por semana</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Roberta">
+          <div class="depo-info"><div class="depo-autor">Roberta M.</div><div class="depo-cargo">Academia 3x por semana</div></div>
+        </div>
       </div>
       <div class="depo reveal">
         <div class="depo-stars">★★★★★</div>
         <p>Tenho duas crianças em casa e o desafio era fazer comida saudável que elas aceitassem. A panqueca de banana e o cookie de aveia viraram os lanches favoritos delas. Não acreditei quando funcionou!</p>
-        <div class="depo-autor">Juliana T. <span>— Mãe de crianças pequenas</span></div>
+        <div class="depo-header">
+          <img class="depo-foto" src="https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Juliana">
+          <div class="depo-info"><div class="depo-autor">Juliana T.</div><div class="depo-cargo">Mãe de crianças pequenas</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -698,9 +833,22 @@
       <p class="subtitulo" style="color:rgba(255,255,255,.7);max-width:440px;margin:0 auto">Acesso imediato após o pagamento. Você recebe tudo pelo WhatsApp.</p>
     </div>
     <div class="preco-box reveal">
-      <div class="preco-de">De R$ 97,00</div>
-      <div class="preco-por">R$ 19,99<small> à vista no Pix</small></div>
-      <div class="preco-pix">Oferta de lançamento — por tempo limitado</div>
+      <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);margin-bottom:20px;">O que está incluso</div>
+      <div class="valor-lista">
+        <div class="valor-item"><span>5 módulos em vídeo</span><span>R$ 47</span></div>
+        <div class="valor-item"><span>+30 receitas com imagens</span><span>R$ 27</span></div>
+        <div class="valor-item"><span>PDF imprimível das receitas</span><span>R$ 17</span></div>
+        <div class="valor-item"><span>Lista de compras semanal</span><span>R$ 9</span></div>
+        <div class="valor-item"><span>Grupo de suporte no WhatsApp</span><span>R$ 47</span></div>
+        <div class="valor-item"><span>Acesso vitalício + atualizações</span><span>R$ 37</span></div>
+      </div>
+      <hr class="valor-divider">
+      <div class="valor-total"><span>Valor total</span><span>R$ 184</span></div>
+      <div style="margin:22px 0 8px;">
+        <div class="preco-de">De R$ 97,00</div>
+        <div class="preco-por">R$ 19,99<small> à vista no Pix</small></div>
+        <div class="preco-pix">Oferta de lançamento — por tempo limitado ⏳</div>
+      </div>
       <div class="preco-inclui">
         <div class="preco-item">5 módulos completos em vídeo</div>
         <div class="preco-item">+30 receitas testadas e aprovadas</div>
@@ -773,6 +921,11 @@ const obs = new IntersectionObserver(entries=>{
 },{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
+// ── Navbar scrolled
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
 // ── FAQ accordion
 function toggleFaq(el) {
   const item = el.closest('.faq-item');
@@ -788,6 +941,27 @@ function trocarTab(id, btn) {
   document.getElementById('tab-'+id).classList.add('ativo');
   btn.classList.add('ativo');
 }
+
+// ── Countdown 48h
+(function(){
+  const KEY = 'amor_cozinha_deadline';
+  let deadline = localStorage.getItem(KEY);
+  if (!deadline) {
+    deadline = Date.now() + 48*60*60*1000;
+    localStorage.setItem(KEY, deadline);
+  }
+  function tick(){
+    const diff = Math.max(0, deadline - Date.now());
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    document.getElementById('cdH').textContent = String(h).padStart(2,'0');
+    document.getElementById('cdM').textContent = String(m).padStart(2,'0');
+    document.getElementById('cdS').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 </script>
 </body>
 </html>
