@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor de Cozinha — Lista de Compras Semanal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p:#a89070; --ouro:#c8a96a; --p2:#2c2c2c;
+    --claro:#f2ede7; --creme:#faf8f5; --cinza:#888078; --borda:#e4ddd5;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; color:var(--p2); background:#fff; }
+
+  .header {
+    background:var(--p2); color:white; padding:40px 48px 32px;
+    border-bottom:4px solid var(--ouro);
+  }
+  .header-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; }
+  .header h1 { font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:6px; }
+  .header h1 em { color:var(--ouro); font-style:italic; }
+  .header p { font-size:.87rem; color:rgba(255,255,255,.6); }
+  .semana-badge { background:rgba(200,169,106,.2); border:1px solid rgba(200,169,106,.4); border-radius:20px; padding:8px 20px; font-size:.8rem; font-weight:600; color:var(--ouro); white-space:nowrap; }
+
+  .instrucao { background:var(--claro); padding:20px 48px; border-bottom:1px solid var(--borda); font-size:.84rem; color:var(--cinza); }
+  .instrucao strong { color:var(--p2); }
+
+  .body { padding:36px 48px; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:800px) { .grid { grid-template-columns:1fr 1fr; } }
+  @media(max-width:520px) { .grid { grid-template-columns:1fr; } .header,.instrucao,.body { padding-left:24px; padding-right:24px; } }
+
+  .categoria { background:var(--creme); border-radius:12px; padding:22px 20px; border:1px solid var(--borda); }
+  .cat-titulo { display:flex; align-items:center; gap:8px; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ouro); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--borda); }
+  .item { display:flex; align-items:center; gap:12px; padding:7px 0; border-bottom:1px dotted var(--borda); }
+  .item:last-child { border-bottom:none; }
+  .check { width:20px; height:20px; border:2px solid var(--borda); border-radius:4px; flex-shrink:0; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+  .check:hover { border-color:var(--ouro); }
+  .item.marcado .check { background:var(--p2); border-color:var(--p2); }
+  .item.marcado .check::after { content:'✓'; color:white; font-size:.65rem; font-weight:800; }
+  .item.marcado .nome { text-decoration:line-through; opacity:.4; }
+  .nome { font-size:.85rem; color:var(--p2); flex:1; cursor:pointer; }
+  .qtd { font-size:.75rem; font-weight:700; color:var(--cinza); white-space:nowrap; }
+
+  .rodape { margin-top:32px; background:var(--p2); border-radius:12px; padding:22px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .rodape p { font-size:.82rem; color:rgba(255,255,255,.6); }
+  .rodape strong { color:var(--ouro); }
+  .contador { font-family:'Playfair Display',serif; font-size:1.4rem; color:white; }
+  .contador span { color:var(--ouro); }
+
+  .btn-print { position:fixed; bottom:24px; right:24px; background:var(--p2); color:white; border:none; cursor:pointer; padding:13px 22px; border-radius:8px; font-family:'Inter',sans-serif; font-size:.86rem; font-weight:600; box-shadow:0 4px 20px rgba(44,44,44,.25); display:flex; align-items:center; gap:8px; }
+  .btn-limpar { position:fixed; bottom:24px; right:200px; background:white; color:var(--p2); border:1.5px solid var(--borda); cursor:pointer; padding:13px 20px; border-radius:8px; font-family:'Inter',sans-serif; font-size:.86rem; font-weight:600; }
+  @media print { .btn-print,.btn-limpar { display:none; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>Lista de Compras <em>Semanal</em></h1>
+      <p>Amor de Cozinha · Ingredientes para todas as receitas da semana</p>
+    </div>
+    <div class="semana-badge">✦ Semana saudável</div>
+  </div>
+</div>
+
+<div class="instrucao">
+  <strong>Como usar:</strong> Marque o item clicando nele ao fazer as compras. Ao imprimir, as marcações aparecem como caixinhas para marcar à mão. Reabasteça conforme o que já tiver em casa.
+</div>
+
+<div class="body">
+  <div class="grid">
+
+    <!-- PROTEÍNAS -->
+    <div class="categoria">
+      <div class="cat-titulo">🥩 Proteínas</div>
+      <div class="item"><div class="check"></div><span class="nome">Filé de frango</span><span class="qtd">600g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Ovo (meia dúzia)</span><span class="qtd">12 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Tilápia (filés)</span><span class="qtd">400g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Atum ao natural (lata)</span><span class="qtd">2 latas</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Carne moída patinho</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Iogurte grego natural</span><span class="qtd">4 potes</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Cream cheese light</span><span class="qtd">1 cx</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Queijo cottage</span><span class="qtd">200g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Grão-de-bico (lata)</span><span class="qtd">2 latas</span></div>
+    </div>
+
+    <!-- LEGUMES E VERDURAS -->
+    <div class="categoria">
+      <div class="cat-titulo">🥦 Legumes e Verduras</div>
+      <div class="item"><div class="check"></div><span class="nome">Couve-flor</span><span class="qtd">1 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Abobrinha</span><span class="qtd">3 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Brócolis</span><span class="qtd">1 maço</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Cenoura</span><span class="qtd">4 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Espinafre fresco</span><span class="qtd">1 maço</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Pimentão vermelho</span><span class="qtd">2 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Alface americana</span><span class="qtd">1 pé</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Tomate</span><span class="qtd">6 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Abóbora cabotiá</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Berinjela</span><span class="qtd">1 un</span></div>
+    </div>
+
+    <!-- FRUTAS -->
+    <div class="categoria">
+      <div class="cat-titulo">🍌 Frutas</div>
+      <div class="item"><div class="check"></div><span class="nome">Banana</span><span class="qtd">1 cacho</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Limão</span><span class="qtd">6 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Maçã</span><span class="qtd">4 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Morango (fresco ou congelado)</span><span class="qtd">300g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Maracujá</span><span class="qtd">3 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Polpa de açaí (sem açúcar)</span><span class="qtd">200g</span></div>
+    </div>
+
+    <!-- CARBOIDRATOS E CEREAIS -->
+    <div class="categoria">
+      <div class="cat-titulo">🌾 Carboidratos e Cereais</div>
+      <div class="item"><div class="check"></div><span class="nome">Aveia em flocos grossos</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Arroz integral</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Goma de tapioca</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Farinha de aveia</span><span class="qtd">500g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Polvilho azedo</span><span class="qtd">300g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Granola sem açúcar</span><span class="qtd">300g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Feijão preto (lata)</span><span class="qtd">1 lata</span></div>
+    </div>
+
+    <!-- TEMPEROS E CONDIMENTOS -->
+    <div class="categoria">
+      <div class="cat-titulo">🧄 Temperos e Condimentos</div>
+      <div class="item"><div class="check"></div><span class="nome">Alho</span><span class="qtd">1 cabeça</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Cebola</span><span class="qtd">3 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Azeite extra-virgem</span><span class="qtd">1 garrafinha</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Sal e pimenta-do-reino</span><span class="qtd">— </span></div>
+      <div class="item"><div class="check"></div><span class="nome">Orégano, páprica, cominho</span><span class="qtd">—</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Canela em pó</span><span class="qtd">1 un</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Gengibre fresco</span><span class="qtd">1 pedaço</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Mostarda dijon</span><span class="qtd">1 pote</span></div>
+    </div>
+
+    <!-- BÁSICOS DE DESPENSA -->
+    <div class="categoria">
+      <div class="cat-titulo">🧺 Básicos de Despensa</div>
+      <div class="item"><div class="check"></div><span class="nome">Cacau em pó 100%</span><span class="qtd">200g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Mel puro</span><span class="qtd">1 pote</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Óleo de coco</span><span class="qtd">1 pote</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Manteiga sem sal</span><span class="qtd">200g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Leite desnatado</span><span class="qtd">1L</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Leite de coco light (lata)</span><span class="qtd">1 lata</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Sementes de chia</span><span class="qtd">200g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Pasta de amendoim (sem açúcar)</span><span class="qtd">1 pote</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Gotas de chocolate 70%</span><span class="qtd">100g</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Bicarbonato de sódio</span><span class="qtd">1 cx</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Leite condensado light</span><span class="qtd">1 lata</span></div>
+      <div class="item"><div class="check"></div><span class="nome">Caldo de legumes (tablete ou pó)</span><span class="qtd">1 cx</span></div>
+    </div>
+
+  </div>
+
+  <div class="rodape">
+    <div>
+      <p><strong>Dica Fabrizia:</strong> Compre frutas e legumes no sacolão ou feira — mais barato e mais fresco.</p>
+      <p style="margin-top:4px;">Abastecendo bem a despensa uma vez, as semanas seguintes custam muito menos.</p>
+    </div>
+    <div class="contador">
+      <span id="cntMarcado">0</span> / <span id="cntTotal">0</span> itens
+    </div>
+  </div>
+</div>
+
+<button class="btn-print" onclick="window.print()">🖨️ Imprimir</button>
+<button class="btn-limpar" onclick="limpar()">↺ Limpar</button>
+
+<script>
+const items = document.querySelectorAll('.item');
+const cntMarcado = document.getElementById('cntMarcado');
+const cntTotal = document.getElementById('cntTotal');
+
+cntTotal.textContent = items.length;
+
+// Carregar estado salvo
+items.forEach((item, i) => {
+  if (localStorage.getItem('lista_' + i) === '1') item.classList.add('marcado');
+  item.addEventListener('click', () => {
+    item.classList.toggle('marcado');
+    localStorage.setItem('lista_' + i, item.classList.contains('marcado') ? '1' : '0');
+    atualizar();
+  });
+});
+
+function atualizar() {
+  cntMarcado.textContent = document.querySelectorAll('.item.marcado').length;
+}
+
+function limpar() {
+  items.forEach((item, i) => {
+    item.classList.remove('marcado');
+    localStorage.removeItem('lista_' + i);
+  });
+  atualizar();
+}
+
+atualizar();
+</script>
+</body>
+</html>

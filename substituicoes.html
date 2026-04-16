@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor de Cozinha — Tabela de Substituições</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p:#a89070; --ouro:#c8a96a; --p2:#2c2c2c;
+    --claro:#f2ede7; --creme:#faf8f5; --cinza:#888078; --borda:#e4ddd5;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; color:var(--p2); background:#fff; }
+
+  .header { background:var(--p2); color:white; padding:40px 48px 32px; border-bottom:4px solid var(--ouro); }
+  .header h1 { font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:6px; }
+  .header h1 em { color:var(--ouro); font-style:italic; }
+  .header p { font-size:.87rem; color:rgba(255,255,255,.6); margin-top:6px; }
+
+  .body { padding:36px 48px; }
+  @media(max-width:560px) { .header,.body { padding-left:24px; padding-right:24px; } }
+
+  .secao { margin-bottom:40px; }
+  .secao-titulo { font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ouro); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .secao-titulo::after { content:''; flex:1; height:1px; background:var(--borda); }
+
+  table { width:100%; border-collapse:collapse; }
+  thead th { background:var(--p2); color:white; padding:11px 16px; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-align:left; }
+  thead th:first-child { border-radius:8px 0 0 0; }
+  thead th:last-child { border-radius:0 8px 0 0; }
+  tbody tr { border-bottom:1px solid var(--borda); }
+  tbody tr:last-child { border-bottom:none; }
+  tbody tr:nth-child(even) { background:var(--creme); }
+  td { padding:12px 16px; font-size:.85rem; vertical-align:top; }
+  td:first-child { font-weight:600; color:var(--p2); width:28%; }
+  td:nth-child(2) { color:var(--cinza); width:4%; text-align:center; font-size:1.1rem; }
+  td:nth-child(3) { color:#2a7a2a; font-weight:600; width:28%; }
+  td:last-child { color:var(--cinza); font-size:.8rem; line-height:1.6; }
+
+  .tag-saudavel { display:inline-block; background:#e8f5e9; color:#2a7a2a; border-radius:4px; padding:1px 8px; font-size:.65rem; font-weight:700; letter-spacing:.06em; margin-left:6px; }
+
+  .dica-box { background:var(--claro); border-left:3px solid var(--ouro); border-radius:0 8px 8px 0; padding:16px 20px; margin-top:40px; font-size:.86rem; color:var(--p2); line-height:1.75; }
+  .dica-box strong { color:var(--ouro); display:block; margin-bottom:6px; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+
+  .btn-print { position:fixed; bottom:24px; right:24px; background:var(--p2); color:white; border:none; cursor:pointer; padding:13px 22px; border-radius:8px; font-family:'Inter',sans-serif; font-size:.86rem; font-weight:600; box-shadow:0 4px 20px rgba(44,44,44,.25); display:flex; align-items:center; gap:8px; }
+  @media print { .btn-print { display:none; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Tabela de <em>Substituições</em></h1>
+  <p>Amor de Cozinha · Troque o ingrediente pesado pela versão mais leve — sem perder o sabor</p>
+</div>
+
+<div class="body">
+
+  <!-- CARBOIDRATOS -->
+  <div class="secao">
+    <div class="secao-titulo">🌾 Carboidratos e Farinhas</div>
+    <table>
+      <thead>
+        <tr><th>Ingrediente original</th><th></th><th>Substituto fit</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arroz branco</td><td>→</td>
+          <td>Arroz de couve-flor <span class="tag-saudavel">✓ fit</span></td>
+          <td>Rale a couve-flor crua e refogue. Reduz 80% dos carboidratos.</td>
+        </tr>
+        <tr>
+          <td>Arroz branco</td><td>→</td>
+          <td>Arroz integral</td>
+          <td>Mesmo preparo, mais fibra e índice glicêmico mais baixo.</td>
+        </tr>
+        <tr>
+          <td>Macarrão comum</td><td>→</td>
+          <td>Macarrão de abobrinha</td>
+          <td>Use um descascador ou espiralizador. Leve ao fogo por 2 min no molho.</td>
+        </tr>
+        <tr>
+          <td>Farinha de trigo</td><td>→</td>
+          <td>Farinha de aveia</td>
+          <td>Troca na mesma proporção em bolos e muffins. Deixa mais úmido.</td>
+        </tr>
+        <tr>
+          <td>Farinha de trigo</td><td>→</td>
+          <td>Farinha de amêndoas</td>
+          <td>Para receitas low carb. Mais gordura boa e proteína.</td>
+        </tr>
+        <tr>
+          <td>Pão branco</td><td>→</td>
+          <td>Tapioca</td>
+          <td>Naturalmente sem glúten. Boa opção para o café da manhã.</td>
+        </tr>
+        <tr>
+          <td>Crouton</td><td>→</td>
+          <td>Grão-de-bico torrado</td>
+          <td>Tempere e torre no forno. Crocante e cheio de proteína.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AÇÚCAR E ADOÇANTES -->
+  <div class="secao">
+    <div class="secao-titulo">🍯 Açúcar e Adoçantes</div>
+    <table>
+      <thead>
+        <tr><th>Ingrediente original</th><th></th><th>Substituto fit</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Açúcar branco refinado</td><td>→</td>
+          <td>Mel puro <span class="tag-saudavel">✓ natural</span></td>
+          <td>Use 75% da quantidade do açúcar. Reduza 2 colheres de sopa do líquido da receita.</td>
+        </tr>
+        <tr>
+          <td>Açúcar branco refinado</td><td>→</td>
+          <td>Açúcar demerara ou mascavo</td>
+          <td>Troca 1:1. Tem mais minerais e sabor mais caramelizado.</td>
+        </tr>
+        <tr>
+          <td>Açúcar em bolos</td><td>→</td>
+          <td>Banana madura amassada</td>
+          <td>½ banana substitui ¼ xícara de açúcar. Ideal para bolos e cookies.</td>
+        </tr>
+        <tr>
+          <td>Açúcar em doces</td><td>→</td>
+          <td>Tâmaras trituradas</td>
+          <td>Adoça naturalmente e ainda adiciona fibra. Hidrate antes de bater.</td>
+        </tr>
+        <tr>
+          <td>Achocolatado</td><td>→</td>
+          <td>Cacau 100% em pó</td>
+          <td>Sem açúcar, com muito mais antioxidantes. Use em menor quantidade.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GORDURAS -->
+  <div class="secao">
+    <div class="secao-titulo">🫒 Gorduras e Laticínios</div>
+    <table>
+      <thead>
+        <tr><th>Ingrediente original</th><th></th><th>Substituto fit</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Creme de leite</td><td>→</td>
+          <td>Iogurte grego natural <span class="tag-saudavel">✓ fit</span></td>
+          <td>Troca 1:1 em molhos frios. Para quente, cuidado com a fervura (pode talhar).</td>
+        </tr>
+        <tr>
+          <td>Maionese</td><td>→</td>
+          <td>Iogurte grego + mostarda</td>
+          <td>Misture 2:1. Cremoso, menos gorduroso e ainda mais gostoso.</td>
+        </tr>
+        <tr>
+          <td>Queijo prato / mussarela</td><td>→</td>
+          <td>Queijo cottage ou ricota</td>
+          <td>Menos gordura, mais proteína. Ótimo em recheios e topping.</td>
+        </tr>
+        <tr>
+          <td>Manteiga em bolos</td><td>→</td>
+          <td>Óleo de coco</td>
+          <td>Troca 1:1. Dá leve sabor de coco e é mais estável ao calor.</td>
+        </tr>
+        <tr>
+          <td>Manteiga em bolos</td><td>→</td>
+          <td>Purê de banana ou abacate</td>
+          <td>½ xícara de purê substitui ½ xícara de manteiga. Deixa o bolo mais úmido.</td>
+        </tr>
+        <tr>
+          <td>Leite integral</td><td>→</td>
+          <td>Leite de coco light ou leite de aveia</td>
+          <td>Para receitas doces ou sopas. Mesma textura, sabor diferente.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PROTEÍNAS -->
+  <div class="secao">
+    <div class="secao-titulo">🥚 Proteínas e Ovos</div>
+    <table>
+      <thead>
+        <tr><th>Ingrediente original</th><th></th><th>Substituto fit</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ovo inteiro (em bolos)</td><td>→</td>
+          <td>2 claras <span class="tag-saudavel">✓ fit</span></td>
+          <td>Mesma função de liga, menos colesterol. O bolo fica um pouco mais seco.</td>
+        </tr>
+        <tr>
+          <td>Carne vermelha gordurosa</td><td>→</td>
+          <td>Carne moída patinho</td>
+          <td>Mesma versatilidade com muito menos gordura saturada.</td>
+        </tr>
+        <tr>
+          <td>Frango com pele frito</td><td>→</td>
+          <td>Frango sem pele grelhado</td>
+          <td>Remove 40% das calorias. Marinar bem compensa o sabor.</td>
+        </tr>
+        <tr>
+          <td>Atum em óleo</td><td>→</td>
+          <td>Atum ao natural</td>
+          <td>Mesma proteína, menos da metade das calorias.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAST-FOOD E CONGELADOS -->
+  <div class="secao">
+    <div class="secao-titulo">🍔 Substituições do Dia a Dia</div>
+    <table>
+      <thead>
+        <tr><th>Hábito original</th><th></th><th>Alternativa saudável</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sorvete industrializado</td><td>→</td>
+          <td>Sorvete de banana (receita 26) <span class="tag-saudavel">✓ fit</span></td>
+          <td>Apenas banana congelada batida. Natural, sem aditivos.</td>
+        </tr>
+        <tr>
+          <td>Salgadinho de pacote</td><td>→</td>
+          <td>Grão-de-bico torrado temperado</td>
+          <td>Crocante igual, cheio de proteína e fibra.</td>
+        </tr>
+        <tr>
+          <td>Barra de chocolate ao leite</td><td>→</td>
+          <td>Chocolate 70% + pasta de amendoim</td>
+          <td>Menos açúcar, mais antioxidante. 2 quadradinhos satisfazem.</td>
+        </tr>
+        <tr>
+          <td>Refrigerante</td><td>→</td>
+          <td>Água com limão, gengibre e hortelã</td>
+          <td>Refrescante, anti-inflamatória e sem açúcar nenhum.</td>
+        </tr>
+        <tr>
+          <td>Pão de fôrma (café da manhã)</td><td>→</td>
+          <td>Tapioca ou panqueca de banana</td>
+          <td>Mais proteína, menos glúten. Saciante até o almoço.</td>
+        </tr>
+        <tr>
+          <td>Maionese industrializada</td><td>→</td>
+          <td>Pasta de abacate com limão (guacamole simples)</td>
+          <td>Gordura boa do abacate. Funciona em sanduíches e wraps.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dica-box">
+    <strong>✦ Recado da Fabrizia</strong>
+    Substituir não é punição — é descobrir versões melhores de coisas que você já ama. Comece por uma troca por semana: só isso já faz diferença no final do mês. Não tente mudar tudo de uma vez. A constância vale mais do que a perfeição.
+  </div>
+
+</div>
+
+<button class="btn-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+</body>
+</html>

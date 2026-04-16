@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor de Cozinha — Roteiros dos Módulos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --p:#a89070; --ouro:#c8a96a; --p2:#2c2c2c; --claro:#f2ede7; --creme:#faf8f5; --cinza:#888078; --borda:#e4ddd5; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; color:var(--p2); background:#fff; }
+
+  .header { background:var(--p2); padding:40px 48px; border-bottom:4px solid var(--ouro); }
+  .header h1 { font-family:'Playfair Display',serif; font-size:1.9rem; color:white; margin-bottom:6px; }
+  .header h1 em { color:var(--ouro); }
+  .header p { font-size:.86rem; color:rgba(255,255,255,.6); }
+
+  .aviso { background:rgba(200,169,106,.1); border:1px solid rgba(200,169,106,.3); border-radius:8px; padding:16px 22px; margin:32px 48px; font-size:.84rem; color:var(--p2); line-height:1.7; }
+  .aviso strong { color:var(--ouro); }
+
+  .modulo { padding:36px 48px; border-bottom:2px solid var(--claro); }
+  @media(max-width:560px) { .header,.aviso,.modulo { padding-left:24px; padding-right:24px; } }
+
+  .mod-header { display:flex; align-items:center; gap:16px; margin-bottom:28px; }
+  .mod-num { width:52px; height:52px; border-radius:50%; background:var(--p2); color:var(--ouro); font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .mod-info h2 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--p2); }
+  .mod-info .mod-meta { font-size:.78rem; color:var(--cinza); margin-top:4px; }
+
+  .bloco { background:var(--creme); border-radius:10px; padding:20px 22px; margin-bottom:18px; border-left:3px solid var(--borda); }
+  .bloco.abertura { border-left-color:var(--ouro); }
+  .bloco.conteudo { border-left-color:var(--p2); }
+  .bloco.fechamento { border-left-color:#2a7a2a; }
+  .bloco-tag { font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+  .bloco.abertura .bloco-tag { color:var(--ouro); }
+  .bloco.conteudo .bloco-tag { color:var(--p2); }
+  .bloco.fechamento .bloco-tag { color:#2a7a2a; }
+  .bloco p { font-size:.87rem; line-height:1.8; color:#333; margin-bottom:10px; }
+  .bloco p:last-child { margin-bottom:0; }
+  .bloco p em { font-style:italic; color:var(--cinza); }
+  .script { background:white; border:1px solid var(--borda); border-radius:6px; padding:14px 16px; margin-top:10px; font-size:.86rem; line-height:1.82; color:#222; font-style:italic; }
+  .script::before { content:'"'; color:var(--ouro); font-size:1.4rem; font-family:'Playfair Display',serif; line-height:1; display:block; margin-bottom:4px; }
+
+  .topicos { list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+  .topicos li { display:flex; align-items:flex-start; gap:10px; font-size:.85rem; color:#333; line-height:1.6; }
+  .topicos li::before { content:'▸'; color:var(--ouro); flex-shrink:0; }
+
+  .btn-print { position:fixed; bottom:24px; right:24px; background:var(--p2); color:white; border:none; cursor:pointer; padding:13px 22px; border-radius:8px; font-family:'Inter',sans-serif; font-size:.86rem; font-weight:600; box-shadow:0 4px 20px rgba(44,44,44,.25); }
+  @media print { .btn-print { display:none; } .modulo { page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Roteiros dos <em>5 Módulos</em></h1>
+  <p>Amor de Cozinha · Guia para gravação dos vídeos — leia com naturalidade, não precisa decorar</p>
+</div>
+
+<div class="aviso">
+  <strong>Como usar este roteiro:</strong> Cada módulo tem a abertura (o que falar para engajar), o conteúdo (o que ensinar) e o fechamento (como encerrar e criar expectativa para o próximo). Você não precisa falar palavra por palavra — use como guia. Fale como você fala no dia a dia, olhando para a câmera ou para as mãos enquanto cozinha. Autenticidade vende mais do que perfeição.
+</div>
+
+<!-- ══ MÓDULO 1 ══ -->
+<div class="modulo">
+  <div class="mod-header">
+    <div class="mod-num">1</div>
+    <div class="mod-info">
+      <h2>🌱 A Base da Alimentação Saudável</h2>
+      <div class="mod-meta">Duração estimada: 12–18 min · Sem receita neste módulo — é teórico e motivacional</div>
+    </div>
+  </div>
+
+  <div class="bloco abertura">
+    <div class="bloco-tag">✦ Abertura — primeiros 2 min</div>
+    <div class="script">Olá! Eu sou a Fabrizia, e se você está aqui é porque quer mudar sua relação com a comida. Não através de dieta, não através de sofrimento. Mas de uma forma real, gostosa e que você consiga manter por anos. Nesse módulo eu vou te mostrar os fundamentos que mudaram a minha vida — e que vão mudar a sua também.</div>
+  </div>
+
+  <div class="bloco conteudo">
+    <div class="bloco-tag">📖 Conteúdo principal</div>
+    <p><strong>Tópico 1 — Por que as dietas normais não funcionam</strong></p>
+    <ul class="topicos">
+      <li>Dietas restritivas funcionam no curto prazo, mas o corpo luta contra elas</li>
+      <li>A privação leva à compulsão — e aí você se sente culpada</li>
+      <li>A solução não é comer menos, é comer melhor</li>
+    </ul>
+    <div class="script">Eu tentei várias dietas na minha vida. Cardápio de 1.200 calorias, cortar carboidrato, só salada. E sabe o que acontecia? Eu aguentava 2 semanas. Aí um dia ruim chegava, e eu comia tudo que não podia. Não é falta de força de vontade. É o jeito que o corpo funciona. Quando você corta demais, o corpo entra em modo de sobrevivência e faz de tudo para você comer.</div>
+    <p style="margin-top:16px;"><strong>Tópico 2 — Como ler rótulos sem complicação</strong></p>
+    <ul class="topicos">
+      <li>Olhe para a lista de ingredientes, não só as calorias</li>
+      <li>Quanto menor a lista, melhor o produto</li>
+      <li>Açúcar escondido tem muitos nomes: xarope de glicose, maltodextrina, frutose</li>
+      <li>Regra prática: se você não reconhece o ingrediente, o seu corpo também não vai</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>Tópico 3 — A regra do prato ideal</strong></p>
+    <ul class="topicos">
+      <li>½ do prato: legumes e verduras (coloridos, variados)</li>
+      <li>¼ do prato: proteína (frango, peixe, ovos, leguminosas)</li>
+      <li>¼ do prato: carboidrato de qualidade (arroz integral, batata-doce, mandioca)</li>
+      <li>Não precisa pesar nem contar caloria seguindo essa divisão</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>Tópico 4 — Substituições que mudam tudo (introdução)</strong></p>
+    <p>Mencione brevemente as principais substituições — que você vai entregar a tabela completa no material de apoio. O objetivo aqui é plantar a semente.</p>
+    <p style="margin-top:16px;"><strong>Tópico 5 — Montando um cardápio semanal prático</strong></p>
+    <ul class="topicos">
+      <li>Pense em proteína base (frango, peixe, ovo), carboidrato base (arroz integral, couve-flor) e legume da estação</li>
+      <li>Não precisa planejar refeição por refeição — só ter os ingredientes certos em casa</li>
+      <li>Domingo à tarde: 2h de preparo = semana tranquila (meal prep)</li>
+    </ul>
+  </div>
+
+  <div class="bloco fechamento">
+    <div class="bloco-tag">✅ Fechamento</div>
+    <div class="script">No próximo módulo eu vou te mostrar como transformar o café da manhã — a refeição que a maioria das pessoas erra logo cedo — em algo que te sustenta de verdade até o almoço, sem passar fome, sem tomar 3 cafés. Te vejo lá!</div>
+  </div>
+</div>
+
+<!-- ══ MÓDULO 2 ══ -->
+<div class="modulo">
+  <div class="mod-header">
+    <div class="mod-num">2</div>
+    <div class="mod-info">
+      <h2>🥣 Café da Manhã Sem Culpa</h2>
+      <div class="mod-meta">Duração estimada: 15–20 min · Grave fazendo 1 ou 2 receitas na cozinha</div>
+    </div>
+  </div>
+
+  <div class="bloco abertura">
+    <div class="bloco-tag">✦ Abertura — primeiros 2 min</div>
+    <div class="script">O café da manhã errado te deixa com fome em 1 hora. O café da manhã certo te sustenta até o almoço. Hoje eu vou te mostrar como fazer esse café que realmente funciona — com as receitas que eu uso toda semana e que meu filho adora comer junto comigo.</div>
+  </div>
+
+  <div class="bloco conteudo">
+    <div class="bloco-tag">📖 Conteúdo principal</div>
+    <p><strong>Por que o café da manhã tradicional falha</strong></p>
+    <ul class="topicos">
+      <li>Pão branco + margarina + café com açúcar = pico de glicose + queda rápida = fome em 1h</li>
+      <li>A solução: proteína + fibra + gordura boa = energia estável por horas</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Receitas para mostrar ao vivo:</strong></p>
+    <ul class="topicos">
+      <li>Panqueca proteica de banana e aveia (receita 03) — mostre o preparo completo</li>
+      <li>Bowl de iogurte grego com granola e frutas (receita 07) — montagem rápida</li>
+      <li>Pão de queijo low carb de frigideira (receita 15) — opcional se quiser mostrar mais</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Dicas durante o preparo:</strong></p>
+    <ul class="topicos">
+      <li>Banana mais madura = mais doce = menos açúcar necessário</li>
+      <li>Iogurte grego é proteína — não é só "coisa de academia"</li>
+      <li>Granola: compre sem açúcar ou faça em casa (mais barato e saudável)</li>
+    </ul>
+    <div class="script" style="margin-top:14px;">Sabe o que mudou no meu café da manhã? Eu parei de comer pão e comecei a comer proteína. Não porque "não pode pão" — mas porque percebi que o pão me deixava com fome em 1 hora. A panqueca de banana? Me sustenta até o meio-dia. Experimenta por uma semana e me conta.</div>
+  </div>
+
+  <div class="bloco fechamento">
+    <div class="bloco-tag">✅ Fechamento</div>
+    <div class="script">No próximo módulo a gente vai falar do almoço — e eu vou te mostrar como fazer um almoço gostoso, que a família inteira come, sem precisar fazer comida separada para você. Te vejo lá!</div>
+  </div>
+</div>
+
+<!-- ══ MÓDULO 3 ══ -->
+<div class="modulo">
+  <div class="mod-header">
+    <div class="mod-num">3</div>
+    <div class="mod-info">
+      <h2>🍱 Almoço Gostoso e Leve</h2>
+      <div class="mod-meta">Duração estimada: 18–25 min · O módulo mais importante — grave com calma</div>
+    </div>
+  </div>
+
+  <div class="bloco abertura">
+    <div class="bloco-tag">✦ Abertura — primeiros 2 min</div>
+    <div class="script">O almoço era meu maior desafio. Eu trabalhava muito, tinha pouco tempo, e ainda precisava cozinhar para mim e para o meu filho. Hoje eu vou te mostrar como eu resolvi isso — com receitas que ficam prontas em menos de 30 minutos e que qualquer pessoa da família come junto.</div>
+  </div>
+
+  <div class="bloco conteudo">
+    <div class="bloco-tag">📖 Conteúdo principal</div>
+    <p><strong>Receitas para mostrar ao vivo (escolha 2–3):</strong></p>
+    <ul class="topicos">
+      <li>Arroz de couve-flor (receita 11) — mostre o segredo de não tampar a frigideira</li>
+      <li>Frango grelhado com limão e ervas (receita 01) — marinada de véspera</li>
+      <li>Salada caesar fit com frango desfiado (receita 05) — grão-de-bico torrado como crouton</li>
+      <li>Bowl de frango com arroz integral (receita 08) — montagem visual bonita</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Conceito de Meal Prep — mostrar na prática:</strong></p>
+    <ul class="topicos">
+      <li>Cozinhe 500g de frango de uma vez — serve a semana toda</li>
+      <li>Arroz integral feito em lote dura 5 dias na geladeira</li>
+      <li>Legumes assados em lote: vai para o forno e esquece</li>
+      <li>Monte os bowls em potes — almoço pronto para 4 dias</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Molhos caseiros rápidos:</strong></p>
+    <ul class="topicos">
+      <li>Iogurte + mostarda + limão = molho para saladas</li>
+      <li>Azeite + alho + limão = molho para frango e peixe</li>
+      <li>Molho de tomate caseiro (receita 20) — congela bem</li>
+    </ul>
+    <div class="script" style="margin-top:14px;">Eu abria o mercado com meu filho no colo. Literalmente. E ainda assim conseguia almoçar bem. O segredo? No domingo eu separava 2 horas e preparava tudo. Frango, legumes, arroz. E de segunda a sexta eu só montava o prato. Não cozinhava todo dia. Isso mudou tudo.</div>
+  </div>
+
+  <div class="bloco fechamento">
+    <div class="bloco-tag">✅ Fechamento</div>
+    <div class="script">No próximo módulo eu vou te mostrar como não precisar abrir mão dos doces. Sim — tem como comer brigadeiro, bolo de chocolate e cookie sem culpa. E eu vou te provar. Te vejo no Módulo 4!</div>
+  </div>
+</div>
+
+<!-- ══ MÓDULO 4 ══ -->
+<div class="modulo">
+  <div class="mod-header">
+    <div class="mod-num">4</div>
+    <div class="mod-info">
+      <h2>🍫 Doces e Lanches Sem Sofrimento</h2>
+      <div class="mod-meta">Duração estimada: 15–20 min · Módulo mais divertido — mostre entusiasmo</div>
+    </div>
+  </div>
+
+  <div class="bloco abertura">
+    <div class="bloco-tag">✦ Abertura — primeiros 2 min</div>
+    <div class="script">Essa parte aqui é a favorita de todo mundo. Porque eu vou te mostrar que você não precisa abandonar os doces para emagrecer. Você só precisa aprender a fazer versões melhores deles. E olha — algumas são tão boas que os seus filhos, o seu marido, a sua família toda vai comer sem saber que é fit.</div>
+  </div>
+
+  <div class="bloco conteudo">
+    <div class="bloco-tag">📖 Conteúdo principal</div>
+    <p><strong>Receitas para mostrar ao vivo (escolha 2–3):</strong></p>
+    <ul class="topicos">
+      <li>Brigadeiro fit de cacau (receita 21) — mostre a textura ao enrolar</li>
+      <li>Cookie de aveia com banana (receita 23) — 3 ingredientes, impactante</li>
+      <li>Brownie de feijão preto (receita 25) — faça a revelação do feijão no final do vídeo</li>
+      <li>Sorvete de banana (receita 26) — visual impactante, simples</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>A estratégia da vontade de doce:</strong></p>
+    <ul class="topicos">
+      <li>A vontade de doce geralmente vem à noite — é hormonal, não é fraqueza</li>
+      <li>Ter uma opção fit em casa é a diferença entre comer o brigadeiro fit ou ir buscar sorvete</li>
+      <li>Prepare em lote: brigadeiro dura 1 semana na geladeira, cookie dura 5 dias</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Para festas e venda:</strong></p>
+    <ul class="topicos">
+      <li>Brigadeiro fit tem ótima aceitação em festas</li>
+      <li>Cookie e muffin podem ser vendidos como "produto saudável"</li>
+      <li>Brownie de feijão preto surpreende qualquer um — ninguém chuta o ingrediente</li>
+    </ul>
+    <div class="script" style="margin-top:14px;">O brownie de feijão preto foi a receita que mais me surpreendeu na vida. Eu fiz para uma reunião sem avisar o ingrediente, e as pessoas comeram 2, 3 pedaços e pediram a receita. Aí eu falei: tem feijão preto. Ninguém acreditou. Essa é a mágica de cozinhar com amor e com inteligência.</div>
+  </div>
+
+  <div class="bloco fechamento">
+    <div class="bloco-tag">✅ Fechamento</div>
+    <div class="script">No último módulo eu vou te mostrar como juntar tudo isso numa rotina que você consegue manter por meses, por anos. Porque não adianta saber fazer as receitas se a vida real atrapalha. No Módulo 5 eu mostro como eu faço isso funcionar até hoje. Te vejo lá!</div>
+  </div>
+</div>
+
+<!-- ══ MÓDULO 5 ══ -->
+<div class="modulo">
+  <div class="mod-header">
+    <div class="mod-num">5</div>
+    <div class="mod-info">
+      <h2>📅 Rotina Sustentável</h2>
+      <div class="mod-meta">Duração estimada: 12–18 min · Módulo mais pessoal — fale do coração</div>
+    </div>
+  </div>
+
+  <div class="bloco abertura">
+    <div class="bloco-tag">✦ Abertura — primeiros 2 min</div>
+    <div class="script">Chegamos no módulo mais importante do curso. Porque de nada adianta saber fazer 30 receitas se a gente não consegue manter isso na vida real. E a vida real tem dia ruim, tem semana corrida, tem filho doente, tem conta pra pagar. Hoje eu vou te mostrar como eu mantenho essa rotina até hoje — com tudo isso acontecendo ao redor.</div>
+  </div>
+
+  <div class="bloco conteudo">
+    <div class="bloco-tag">📖 Conteúdo principal</div>
+    <p><strong>Tópico 1 — O Meal Prep definitivo (2h de domingo)</strong></p>
+    <ul class="topicos">
+      <li>O que preparar todo domingo: proteína base (frango ou carne), arroz integral, legumes assados, 1 doce fit</li>
+      <li>Monte os potes na geladeira prontos para a semana</li>
+      <li>Com os ingredientes certos em casa, as decisões ruins diminuem</li>
+    </ul>
+    <div class="script">No domingo eu separo 2 horas, coloco uma música boa e preparo a semana. Não é obrigação — virou programa que eu gosto. O frango vai para a frigideira, o legume vai para o forno, o arroz fica no fogão. Faço tudo ao mesmo tempo. Em 2 horas tenho almoço para 5 dias. Isso mudou tudo na minha vida.</div>
+    <p style="margin-top:16px;"><strong>Tópico 2 — O que fazer quando bater a vontade</strong></p>
+    <ul class="topicos">
+      <li>Vontade de doce: primeira opção é o doce fit que você fez</li>
+      <li>Dia ruim: se comer algo fora do plano, não jogue o dia todo fora — recomece na próxima refeição</li>
+      <li>Não existe "estraguei a dieta" — existe "comi algo diferente e agora continuo"</li>
+      <li>Uma refeição ruim não desfaz uma semana boa</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>Tópico 3 — Minha rotina que funciona até hoje</strong></p>
+    <ul class="topicos">
+      <li>Café da manhã: sempre com proteína (ovo, iogurte ou panqueca)</li>
+      <li>Almoço: pote do meal prep ou montagem rápida</li>
+      <li>Lanche: frutas, iogurte ou bolinho de aveia</li>
+      <li>Jantar: leve — sopa, omelete, wrap ou sobra do almoço</li>
+      <li>Final de noite: 1 doce fit se der vontade</li>
+    </ul>
+    <div class="script" style="margin-top:14px;">Eu não sou perfeita. Tem semana que eu como pizza. Tem fim de semana que eu saio com o meu filho e como o que tiver. Mas isso não me preocupa mais. Porque eu sei que na segunda-feira eu volto para a minha rotina. A chave não é nunca errar — é saber voltar.</div>
+    <p style="margin-top:16px;"><strong>Tópico 4 — Como manter o peso sem sofrimento</strong></p>
+    <ul class="topicos">
+      <li>Peso varia naturalmente (água, hormônios, digestão) — não pese todo dia</li>
+      <li>O melhor indicador não é a balança: é como você se sente, como a roupa cai</li>
+      <li>Sustentabilidade > velocidade. Perder 0,5kg por semana e manter é melhor que perder 3kg e recuperar</li>
+    </ul>
+  </div>
+
+  <div class="bloco fechamento">
+    <div class="bloco-tag">✅ Fechamento do Curso</div>
+    <div class="script">Parabéns por chegar até aqui. Você não só aprendeu receitas — você aprendeu um jeito diferente de se relacionar com a comida. Agora é sua vez. Comece pela receita que mais te chamou atenção. Faça hoje. E me conta como ficou no grupo do WhatsApp. Estou aqui para te ajudar em cada passo. Com amor, Fabrizia.</div>
+  </div>
+</div>
+
+<button class="btn-print" onclick="window.print()">🖨️ Imprimir Roteiros</button>
+</body>
+</html>

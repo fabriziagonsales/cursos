@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor de Cozinha — Livro de Receitas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p:     #a89070;
+    --ouro:  #c8a96a;
+    --p2:    #2c2c2c;
+    --claro: #f2ede7;
+    --creme: #faf8f5;
+    --cinza: #888078;
+    --borda: #e4ddd5;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; color:var(--p2); background:#fff; }
+
+  /* ── CAPA ── */
+  .capa {
+    background:var(--p2); color:white; text-align:center;
+    padding:80px 40px; min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .capa-icone { font-size:4rem; margin-bottom:24px; }
+  .capa h1 { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; margin-bottom:12px; line-height:1.15; }
+  .capa h1 em { color:var(--ouro); font-style:italic; }
+  .capa p { font-size:1.1rem; color:rgba(255,255,255,.7); margin-bottom:40px; }
+  .capa-badge { display:inline-block; background:rgba(200,169,106,.18); border:1px solid rgba(200,169,106,.4); border-radius:30px; padding:10px 28px; font-size:.9rem; color:var(--ouro); font-weight:600; letter-spacing:.06em; }
+  .capa-autor { margin-top:60px; font-size:.82rem; color:rgba(255,255,255,.4); letter-spacing:.08em; text-transform:uppercase; }
+
+  /* ── ÍNDICE ── */
+  .indice { padding:60px 48px; border-bottom:1px solid var(--borda); }
+  .indice h2 { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:32px; color:var(--p2); }
+  .indice-cat { margin-bottom:28px; }
+  .indice-cat h3 { font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ouro); margin-bottom:12px; }
+  .indice-lista { display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; }
+  .indice-item { font-size:.87rem; color:var(--cinza); padding:5px 0; border-bottom:1px dotted var(--borda); display:flex; justify-content:space-between; }
+  .indice-item span { font-weight:600; color:var(--p2); }
+
+  /* ── CATEGORIA HEADER ── */
+  .cat-header {
+    background:var(--claro); border-left:4px solid var(--ouro);
+    padding:32px 48px; margin:0;
+  }
+  .cat-header .cat-tag { font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ouro); margin-bottom:8px; }
+  .cat-header h2 { font-family:'Playfair Display',serif; font-size:2rem; color:var(--p2); }
+  .cat-header p { font-size:.9rem; color:var(--cinza); margin-top:8px; line-height:1.6; }
+
+  /* ── RECEITA ── */
+  .receita { padding:48px 48px 40px; border-bottom:1px solid var(--borda); }
+  .receita-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px; gap:20px; flex-wrap:wrap; }
+  .receita h3 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--p2); line-height:1.25; }
+  .receita-desc { font-size:.9rem; color:var(--cinza); line-height:1.7; margin-bottom:24px; }
+  .receita-meta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+  .meta-pill {
+    display:flex; align-items:center; gap:6px;
+    background:var(--creme); border:1px solid var(--borda); border-radius:6px;
+    padding:6px 14px; font-size:.78rem; font-weight:600; color:var(--p2);
+  }
+  .macro-box { background:var(--claro); border-radius:8px; padding:12px 16px; margin-bottom:24px; }
+  .macro-box span { font-size:.78rem; font-weight:700; color:var(--p2); margin-right:16px; }
+  .macro-box span em { font-style:normal; font-weight:400; color:var(--cinza); }
+  .receita-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media(max-width:600px) { .receita-grid { grid-template-columns:1fr; } }
+  .receita h4 { font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ouro); margin-bottom:14px; }
+  .ingredientes li { font-size:.86rem; color:#444; line-height:1.7; list-style:none; padding-left:14px; position:relative; }
+  .ingredientes li::before { content:'·'; position:absolute; left:0; color:var(--ouro); font-weight:700; }
+  .preparo ol { padding-left:18px; }
+  .preparo li { font-size:.86rem; color:#444; line-height:1.75; margin-bottom:8px; }
+  .dica { background:rgba(200,169,106,.08); border:1px solid rgba(200,169,106,.25); border-radius:8px; padding:14px 16px; margin-top:16px; font-size:.82rem; color:var(--p2); line-height:1.65; }
+  .dica strong { color:var(--ouro); }
+
+  /* ── PRINT ── */
+  @media print {
+    .capa { page-break-after:always; }
+    .indice { page-break-after:always; }
+    .cat-header { page-break-before:always; }
+    .receita { page-break-inside:avoid; }
+    body { font-size:13px; }
+    .capa { min-height:auto; padding:60px 40px; }
+  }
+
+  /* ── BOTÃO IMPRIMIR (só na tela) ── */
+  .btn-print {
+    position:fixed; bottom:28px; right:28px; z-index:100;
+    background:var(--p2); color:white; border:none; cursor:pointer;
+    padding:14px 24px; border-radius:8px; font-family:'Inter',sans-serif;
+    font-size:.88rem; font-weight:600; box-shadow:0 6px 24px rgba(44,44,44,.25);
+    display:flex; align-items:center; gap:8px; transition:background .2s;
+  }
+  .btn-print:hover { background:#111; }
+  @media print { .btn-print { display:none; } }
+</style>
+</head>
+<body>
+
+<!-- ══ CAPA ══ -->
+<div class="capa">
+  <div class="capa-icone">🥗</div>
+  <h1>Amor de <em>Cozinha</em></h1>
+  <p>Livro de Receitas — 30 receitas saudáveis testadas e aprovadas</p>
+  <div class="capa-badge">✦ Receitas que transformam sem sofrimento ✦</div>
+  <div class="capa-autor">por Fabrizia Gonsales · amordecozinha.com.br</div>
+</div>
+
+<!-- ══ ÍNDICE ══ -->
+<div class="indice">
+  <h2>Índice de Receitas</h2>
+
+  <div class="indice-cat">
+    <h3>💪 Ricas em Proteína</h3>
+    <div class="indice-lista">
+      <div class="indice-item">Frango grelhado com limão e ervas <span>01</span></div>
+      <div class="indice-item">Omelete de claras com espinafre <span>02</span></div>
+      <div class="indice-item">Panqueca proteica de banana e aveia <span>03</span></div>
+      <div class="indice-item">Tilápia assada com alho e limão <span>04</span></div>
+      <div class="indice-item">Salada caesar fit com frango desfiado <span>05</span></div>
+      <div class="indice-item">Shake de morango com iogurte grego <span>06</span></div>
+      <div class="indice-item">Bowl de iogurte grego com granola <span>07</span></div>
+      <div class="indice-item">Bowl de frango com arroz integral <span>08</span></div>
+      <div class="indice-item">Carne moída refogada fit <span>09</span></div>
+      <div class="indice-item">Ovo mexido cremoso com cottage <span>10</span></div>
+    </div>
+  </div>
+
+  <div class="indice-cat">
+    <h3>⚡ Saborosas e Rápidas</h3>
+    <div class="indice-lista">
+      <div class="indice-item">Arroz de couve-flor ao alho e azeite <span>11</span></div>
+      <div class="indice-item">Macarrão de abobrinha ao sugo <span>12</span></div>
+      <div class="indice-item">Tapioca recheada com frango <span>13</span></div>
+      <div class="indice-item">Sopa creme de abóbora com gengibre <span>14</span></div>
+      <div class="indice-item">Pão de queijo low carb de frigideira <span>15</span></div>
+      <div class="indice-item">Salada de grão-de-bico com legumes <span>16</span></div>
+      <div class="indice-item">Wrap de alface com atum e cream cheese <span>17</span></div>
+      <div class="indice-item">Omelete de forno com legumes <span>18</span></div>
+      <div class="indice-item">Vitamina de banana com aveia <span>19</span></div>
+      <div class="indice-item">Molho de tomate caseiro sem conservante <span>20</span></div>
+    </div>
+  </div>
+
+  <div class="indice-cat">
+    <h3>🍫 Doces Fit</h3>
+    <div class="indice-lista">
+      <div class="indice-item">Brigadeiro fit de cacau com tâmara <span>21</span></div>
+      <div class="indice-item">Bolo de chocolate com abobrinha <span>22</span></div>
+      <div class="indice-item">Cookie de aveia com banana e gotas de chocolate <span>23</span></div>
+      <div class="indice-item">Mousse de maracujá com iogurte <span>24</span></div>
+      <div class="indice-item">Brownie de feijão preto <span>25</span></div>
+      <div class="indice-item">Sorvete de banana de 2 ingredientes <span>26</span></div>
+      <div class="indice-item">Pudim de chia com leite de coco <span>27</span></div>
+      <div class="indice-item">Muffin fit de maçã com canela <span>28</span></div>
+      <div class="indice-item">Açaí bowl com toppings saudáveis <span>29</span></div>
+      <div class="indice-item">Bolinho de aveia assado com mel <span>30</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ CATEGORIA 1 ══════════════════════════ -->
+<div class="cat-header">
+  <div class="cat-tag">Módulo 2 e 3 · Categoria 1</div>
+  <h2>💪 Receitas Ricas em Proteína</h2>
+  <p>Refeições que saciam, constroem músculo e mantêm a energia ao longo do dia.</p>
+</div>
+
+<!-- Receita 01 -->
+<div class="receita">
+  <div class="receita-header">
+    <div>
+      <h3>01 · Frango Grelhado com Limão e Ervas</h3>
+    </div>
+  </div>
+  <p class="receita-desc">A base da semana saudável. Suculento por dentro, dourado por fora — temperado com alho, limão e ervas frescas. Serve com arroz de couve-flor ou salada.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 20 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 220 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>35g</em></span>
+    <span>Carbo: <em>2g</em></span>
+    <span>Gordura: <em>8g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 filés de frango (±150g cada)</li>
+        <li>Suco de 1 limão</li>
+        <li>2 dentes de alho amassados</li>
+        <li>1 colher de sopa de azeite</li>
+        <li>Orégano, salsinha e páprica a gosto</li>
+        <li>Sal e pimenta a gosto</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture o limão, alho, azeite e temperos numa tigela.</li>
+        <li>Cubra os filés e deixe marinar por pelo menos 15 min (pode ser de véspera).</li>
+        <li>Aqueça uma frigideira antiaderente em fogo médio-alto.</li>
+        <li>Grelhe o frango por 5–6 min de cada lado até dourar.</li>
+        <li>Deixe descansar 2 min antes de fatiar.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Marine de véspera e guarde na geladeira. No dia seguinte é só grelhar — ótimo para o meal prep da semana.</div>
+</div>
+
+<!-- Receita 02 -->
+<div class="receita">
+  <h3>02 · Omelete de Claras com Espinafre e Queijo</h3>
+  <p class="receita-desc">Leve, nutritivo e pronto em 10 minutos. Perfeito para o café da manhã ou jantar rápido sem culpa.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 10 min</div>
+    <div class="meta-pill">👤 1 porção</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 180 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>28g</em></span>
+    <span>Carbo: <em>3g</em></span>
+    <span>Gordura: <em>7g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>3 claras de ovo</li>
+        <li>1 ovo inteiro</li>
+        <li>Punhado de espinafre fresco</li>
+        <li>2 colheres de sopa de queijo cottage</li>
+        <li>Sal, pimenta e noz-moscada a gosto</li>
+        <li>Spray de azeite ou ½ colher de chá de azeite</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata as claras com o ovo inteiro, sal e pimenta.</li>
+        <li>Refogue o espinafre rapidamente na frigideira com o azeite.</li>
+        <li>Despeje a mistura de ovos sobre o espinafre.</li>
+        <li>Cozinhe em fogo baixo com a frigideira tampada por 3–4 min.</li>
+        <li>Adicione o cottage, dobre ao meio e sirva.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Troque o espinafre por rúcula ou tomate-cereja. Cada variação parece uma receita nova!</div>
+</div>
+
+<!-- Receita 03 -->
+<div class="receita">
+  <h3>03 · Panqueca Proteica de Banana com Aveia</h3>
+  <p class="receita-desc">Apenas banana, ovo e aveia. Fofa, nutritiva e sustenta até o almoço. Pode rechear com pasta de amendoim.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 15 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 240 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>22g</em></span>
+    <span>Carbo: <em>28g</em></span>
+    <span>Gordura: <em>6g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 banana madura amassada</li>
+        <li>2 ovos</li>
+        <li>4 colheres de sopa de aveia em flocos</li>
+        <li>1 colher de chá de canela</li>
+        <li>Pitada de sal</li>
+        <li>Pasta de amendoim para rechear (opcional)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Amasse a banana com um garfo até virar purê.</li>
+        <li>Acrescente os ovos, aveia, canela e sal. Misture bem.</li>
+        <li>Aqueça frigideira antiaderente untada.</li>
+        <li>Despeje ½ xícara da massa por panqueca.</li>
+        <li>Cozinhe 2–3 min de cada lado em fogo baixo.</li>
+        <li>Recheie com pasta de amendoim ou frutas.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Quanto mais madura a banana, mais doce a panqueca — não precisa de açúcar nenhum.</div>
+</div>
+
+<!-- Receita 04 -->
+<div class="receita">
+  <h3>04 · Tilápia Assada com Alho e Limão</h3>
+  <p class="receita-desc">Peixe leve, acessível e cheio de proteína. Simples e sofisticado — fica pronto no forno sem monitorar.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 25 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 195 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>32g</em></span>
+    <span>Carbo: <em>1g</em></span>
+    <span>Gordura: <em>6g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 filés de tilápia</li>
+        <li>Suco de 1 limão</li>
+        <li>3 dentes de alho laminados</li>
+        <li>1 colher de sopa de azeite</li>
+        <li>Salsinha, sal e pimenta a gosto</li>
+        <li>Páprica defumada (opcional)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Pré-aqueça o forno a 200°C.</li>
+        <li>Tempere os filés com limão, alho, azeite, sal e pimenta.</li>
+        <li>Coloque em forma forrada com papel-alumínio.</li>
+        <li>Asse por 15–18 min até a carne ficar branca e macia.</li>
+        <li>Finalize com salsinha picada na hora.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Coloque rodelas de limão sobre o peixe antes de assar — fica mais suculento e com aquele cheirinho incrível.</div>
+</div>
+
+<!-- Receita 05 -->
+<div class="receita">
+  <h3>05 · Salada Caesar Fit com Frango Desfiado</h3>
+  <p class="receita-desc">Molho caseiro leve, frango temperado e crocante de grão-de-bico. Saciante e deliciosa.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 20 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟡 Médio</div>
+    <div class="meta-pill">🔥 310 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>38g</em></span>
+    <span>Carbo: <em>18g</em></span>
+    <span>Gordura: <em>9g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>200g de frango cozido e desfiado</li>
+        <li>½ pé de alface americana</li>
+        <li>½ xícara de grão-de-bico cozido</li>
+        <li>2 colheres de sopa de iogurte natural</li>
+        <li>1 colher de chá de mostarda</li>
+        <li>Suco de ½ limão, sal e pimenta</li>
+        <li>Queijo parmesão ralado na hora (a gosto)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Tempere o grão-de-bico com azeite, sal e páprica e torre no forno por 20 min (fica crocante).</li>
+        <li>Misture iogurte, mostarda, limão, sal e pimenta para o molho.</li>
+        <li>Rasgue as folhas de alface e coloque na tigela.</li>
+        <li>Adicione o frango desfiado e o grão-de-bico torrado.</li>
+        <li>Regue com o molho e finalize com parmesão.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> O grão-de-bico torrado substitui o crouton — tem crocância sem o carboidrato refinado.</div>
+</div>
+
+<!-- Receita 06 -->
+<div class="receita">
+  <h3>06 · Shake de Morango com Iogurte Grego</h3>
+  <p class="receita-desc">Sem whey, sem suplemento. Só morango, iogurte grego, leite e mel. Cremoso, gelado e perfeito para o pré-treino.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min</div>
+    <div class="meta-pill">👤 1 porção</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 210 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>24g</em></span>
+    <span>Carbo: <em>22g</em></span>
+    <span>Gordura: <em>3g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>½ xícara de morangos congelados</li>
+        <li>1 pote de iogurte grego natural (170g)</li>
+        <li>½ xícara de leite desnatado</li>
+        <li>1 colher de chá de mel</li>
+        <li>Gelo a gosto</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Coloque todos os ingredientes no liquidificador.</li>
+        <li>Bata por 1–2 minutos até ficar cremoso.</li>
+        <li>Prove e ajuste o mel se precisar.</li>
+        <li>Sirva imediatamente bem gelado.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Use morango congelado — fica mais cremoso e gelado sem precisar de muito gelo.</div>
+</div>
+
+<!-- Receita 07 -->
+<div class="receita">
+  <h3>07 · Bowl de Iogurte Grego com Granola e Frutas</h3>
+  <p class="receita-desc">Café da manhã ou lanche da tarde cheio de proteína. Personalize com as frutas que você tiver.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min</div>
+    <div class="meta-pill">👤 1 porção</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 260 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>18g</em></span>
+    <span>Carbo: <em>30g</em></span>
+    <span>Gordura: <em>5g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 pote de iogurte grego natural (170g)</li>
+        <li>3 colheres de sopa de granola sem açúcar</li>
+        <li>½ banana fatiada</li>
+        <li>Punhado de morangos ou frutas vermelhas</li>
+        <li>1 colher de chá de mel ou geleia sem açúcar</li>
+        <li>Sementes de chia (opcional)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Coloque o iogurte numa tigela bonita.</li>
+        <li>Distribua as frutas por cima.</li>
+        <li>Polvilhe a granola e as sementes de chia.</li>
+        <li>Regue com o mel e sirva imediatamente.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Prepare só na hora de comer — se deixar a granola muito tempo no iogurte, amolece e perde a crocância.</div>
+</div>
+
+<!-- Receita 08 -->
+<div class="receita">
+  <h3>08 · Bowl de Frango com Arroz Integral e Legumes</h3>
+  <p class="receita-desc">O prato completo da semana: proteína, carboidrato bom e vitaminas em uma tigela saborosa.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 25 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 420 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>40g</em></span>
+    <span>Carbo: <em>42g</em></span>
+    <span>Gordura: <em>8g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>300g de filé de frango</li>
+        <li>1 xícara de arroz integral cozido</li>
+        <li>1 abobrinha em cubinhos</li>
+        <li>½ pimentão vermelho em tiras</li>
+        <li>1 cenoura ralada</li>
+        <li>Azeite, alho, sal e pimenta</li>
+        <li>Molho tahine ou shoyu light para servir</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Tempere e grelhe o frango até dourar. Fatie.</li>
+        <li>Na mesma frigideira, refogue os legumes com alho e azeite por 5 min (al dente).</li>
+        <li>Monte o bowl: arroz na base, frango fatiado, legumes refogados.</li>
+        <li>Adicione a cenoura ralada crua por cima.</li>
+        <li>Finalize com o molho de sua preferência.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Ótimo para meal prep! Prepare em dobro e guarde em potes — dura 4 dias na geladeira.</div>
+</div>
+
+<!-- Receita 09 -->
+<div class="receita">
+  <h3>09 · Carne Moída Refogada Fit</h3>
+  <p class="receita-desc">Versátil, econômica e cheia de proteína. Serve no bowl, no wrap ou com arroz de couve-flor.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 20 min</div>
+    <div class="meta-pill">👤 3 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 280 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>34g</em></span>
+    <span>Carbo: <em>6g</em></span>
+    <span>Gordura: <em>12g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>500g de carne moída patinho</li>
+        <li>1 cebola picada</li>
+        <li>3 dentes de alho</li>
+        <li>1 tomate maduro picado</li>
+        <li>Sal, pimenta, cominho e orégano</li>
+        <li>Salsinha para finalizar</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Refogue cebola e alho no azeite até dourar.</li>
+        <li>Acrescente a carne moída e mexa para desmanchar os grumos.</li>
+        <li>Quando não houver mais carne rosa, junte o tomate.</li>
+        <li>Tempere, tampe e cozinhe 10 min.</li>
+        <li>Ajuste o sal e finalize com salsinha.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Use patinho — tem menos gordura que o acém e fica bem macia refogada.</div>
+</div>
+
+<!-- Receita 10 -->
+<div class="receita">
+  <h3>10 · Ovo Mexido Cremoso com Cottage</h3>
+  <p class="receita-desc">Café da manhã proteico em 5 minutos. O segredo é o fogo baixo e mexer sem parar.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min</div>
+    <div class="meta-pill">👤 1 porção</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 190 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>22g</em></span>
+    <span>Carbo: <em>3g</em></span>
+    <span>Gordura: <em>9g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 ovos inteiros + 1 clara</li>
+        <li>2 colheres de sopa de cottage</li>
+        <li>Sal e cebolinha picada</li>
+        <li>½ colher de chá de manteiga ou azeite</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata os ovos levemente com o sal.</li>
+        <li>Derreta a manteiga em fogo baixo.</li>
+        <li>Despeje os ovos e mexa delicadamente com espátula.</li>
+        <li>Antes de ficar totalmente firme, junte o cottage.</li>
+        <li>Desligue o fogo, finalize com cebolinha e sirva.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Desligue o fogo antes de parecer pronto — o calor residual termina o cozimento e fica cremoso.</div>
+</div>
+
+<!-- ══════════════════════════ CATEGORIA 2 ══════════════════════════ -->
+<div class="cat-header">
+  <div class="cat-tag">Módulo 3 e 5 · Categoria 2</div>
+  <h2>⚡ Receitas Saborosas e Rápidas</h2>
+  <p>Prontas em até 30 minutos. Para dias corridos sem abrir mão de comer bem.</p>
+</div>
+
+<!-- Receita 11 -->
+<div class="receita">
+  <h3>11 · Arroz de Couve-Flor ao Alho e Azeite</h3>
+  <p class="receita-desc">O substituto do arroz que realmente funciona. Com alho dourado e azeite, fica gostoso demais.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 15 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 90 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>4g</em></span>
+    <span>Carbo: <em>10g</em></span>
+    <span>Gordura: <em>4g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>½ couve-flor média</li>
+        <li>3 dentes de alho laminados</li>
+        <li>1 colher de sopa de azeite</li>
+        <li>Sal, pimenta e salsinha</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Rale ou processe a couve-flor crua até virar "arroz".</li>
+        <li>Doure o alho no azeite em fogo médio.</li>
+        <li>Acrescente a couve-flor ralada e refogue por 5–7 min.</li>
+        <li>Tempere com sal e pimenta e finalize com salsinha.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Não tampe a frigideira — a vapor faz a couve-flor soltar água e fica encharcada.</div>
+</div>
+
+<!-- Receita 12 -->
+<div class="receita">
+  <h3>12 · Macarrão de Abobrinha ao Sugo Caseiro</h3>
+  <p class="receita-desc">O espaguete que não pesa. Abobrinha com molho de tomate fresco feito em casa — levíssimo e muito gostoso.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 20 min</div>
+    <div class="meta-pill">👤 2 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 120 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>5g</em></span>
+    <span>Carbo: <em>14g</em></span>
+    <span>Gordura: <em>4g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 abobrinhas médias</li>
+        <li>3 tomates maduros picados</li>
+        <li>2 dentes de alho</li>
+        <li>Manjericão fresco</li>
+        <li>Azeite, sal e pimenta</li>
+        <li>Parmesão ralado para servir</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Use um descascador para fazer tiras finas de abobrinha (espaguete).</li>
+        <li>Refogue o alho no azeite, junte os tomates e cozinhe 10 min.</li>
+        <li>Tempere o molho com sal, pimenta e manjericão.</li>
+        <li>Salteie as tiras de abobrinha por 2 min no molho quente.</li>
+        <li>Sirva com parmesão e folhas de manjericão.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Não cozinhe a abobrinha demais — ela deve ficar levemente al dente para não desmanchar.</div>
+</div>
+
+<!-- Receita 13 -->
+<div class="receita">
+  <h3>13 · Tapioca Recheada com Frango e Cream Cheese Light</h3>
+  <p class="receita-desc">A tapioca é naturalmente sem glúten e muito prática. Com frango e cream cheese fica gostosa e saciante.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 15 min</div>
+    <div class="meta-pill">👤 1 porção</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 290 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>28g</em></span>
+    <span>Carbo: <em>32g</em></span>
+    <span>Gordura: <em>6g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>4 colheres de sopa de goma de tapioca</li>
+        <li>100g de frango desfiado temperado</li>
+        <li>2 colheres de sopa de cream cheese light</li>
+        <li>Cebolinha picada e sal a gosto</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Espalhe a goma na frigideira antiaderente fria e leve ao fogo médio.</li>
+        <li>Quando a borda começar a secar e a tapioca firmar, vire.</li>
+        <li>Coloque o cream cheese, frango e cebolinha em metade.</li>
+        <li>Dobre ao meio, pressione levemente e sirva.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> A frigideira deve estar antiaderente e sem óleo — a tapioca gruda se usar gordura.</div>
+</div>
+
+<!-- Receita 14 -->
+<div class="receita">
+  <h3>14 · Sopa Creme de Abóbora com Gengibre</h3>
+  <p class="receita-desc">Quente, reconfortante e anti-inflamatória. O gengibre muda tudo — dá um toque levemente picante e refrescante.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 30 min</div>
+    <div class="meta-pill">👤 4 porções</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 110 kcal/porção</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>3g</em></span>
+    <span>Carbo: <em>22g</em></span>
+    <span>Gordura: <em>2g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>500g de abóbora cabotiá em cubos</li>
+        <li>1 cebola picada</li>
+        <li>2 dentes de alho</li>
+        <li>1 colher de chá de gengibre fresco ralado</li>
+        <li>500ml de caldo de legumes caseiro</li>
+        <li>Sal, pimenta e noz-moscada</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Refogue cebola e alho no azeite até amolecer.</li>
+        <li>Acrescente a abóbora e o gengibre, misture bem.</li>
+        <li>Adicione o caldo, tampe e cozinhe 20 min.</li>
+        <li>Bata tudo no liquidificador até virar creme.</li>
+        <li>Ajuste sal e pimenta, finalize com noz-moscada.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Congela muito bem! Faça uma panela grande e separe em porções individuais para o freezer.</div>
+</div>
+
+<!-- Receita 15 -->
+<div class="receita">
+  <h3>15 · Pão de Queijo Low Carb de Frigideira</h3>
+  <p class="receita-desc">Pronto em 5 minutos, sem forno. Para aquele lanche rápido que não pesa na consciência.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 8 min</div>
+    <div class="meta-pill">👤 1 unidade</div>
+    <div class="meta-pill">🟢 Fácil</div>
+    <div class="meta-pill">🔥 140 kcal</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>12g</em></span>
+    <span>Carbo: <em>4g</em></span>
+    <span>Gordura: <em>9g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 ovo</li>
+        <li>2 colheres de sopa de polvilho azedo</li>
+        <li>2 colheres de sopa de queijo minas padrão ralado</li>
+        <li>Pitada de sal</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture todos os ingredientes até formar uma massa homogênea.</li>
+        <li>Despeje em frigideira antiaderente untada levemente.</li>
+        <li>Tampe e cozinhe em fogo baixo por 4 min.</li>
+        <li>Vire e cozinhe mais 2–3 min. Sirva quente.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> O polvilho azedo dá mais leveza — mas você pode misturar metade com polvilho doce.</div>
+</div>
+
+<!-- Receita 16 a 20 — versões resumidas para manter o PDF enxuto -->
+<div class="receita">
+  <h3>16 · Salada de Grão-de-Bico com Legumes Assados</h3>
+  <p class="receita-desc">Fácil de preparar em lote, fica boa fria e dura 3 dias na geladeira.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 30 min</div><div class="meta-pill">👤 4 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 220 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 lata de grão-de-bico escorrido</li>
+        <li>1 abobrinha, 1 pimentão e 1 berinjela em cubos</li>
+        <li>Azeite, alho em pó, sal e pimenta</li>
+        <li>Suco de ½ limão e salsinha</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Tempere os legumes com azeite, alho em pó, sal e pimenta.</li>
+        <li>Asse em forma a 200°C por 20–25 min.</li>
+        <li>Misture com o grão-de-bico, limão e salsinha.</li>
+        <li>Sirva quente ou fria.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>17 · Wrap de Alface com Atum e Cream Cheese</h3>
+  <p class="receita-desc">Sem carboidrato, pronto em 5 minutos. Perfeito para almoço na correria.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min</div><div class="meta-pill">👤 1 porção</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 200 kcal</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>3 folhas grandes de alface americana</li>
+        <li>1 lata de atum ao natural escorrido</li>
+        <li>2 colheres de sopa de cream cheese light</li>
+        <li>Cenoura ralada, tomate picado, sal e limão</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture o atum com o cream cheese, sal e limão.</li>
+        <li>Distribua sobre as folhas de alface.</li>
+        <li>Adicione cenoura ralada e tomate por cima.</li>
+        <li>Enrole ou sirva aberto como barquinho.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>18 · Omelete de Forno com Legumes</h3>
+  <p class="receita-desc">Faz no domingo, serve a semana. Corte em quadrados e leve na marmita.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 30 min</div><div class="meta-pill">👤 4 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 185 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>6 ovos</li>
+        <li>½ xícara de leite desnatado</li>
+        <li>Brócolis, cenoura ralada, milho, pimentão picados</li>
+        <li>Queijo branco ralado, sal e pimenta</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata os ovos com o leite, sal e pimenta.</li>
+        <li>Misture os legumes e o queijo.</li>
+        <li>Despeje em forma untada e asse a 180°C por 25 min.</li>
+        <li>Espere esfriar antes de cortar.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>19 · Vitamina de Banana com Aveia e Cacau</h3>
+  <p class="receita-desc">Café da manhã em copo. Sustenta e ainda satisfaz a vontade de doce.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min</div><div class="meta-pill">👤 1 porção</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 280 kcal</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 banana congelada</li>
+        <li>1 xícara de leite vegetal ou desnatado</li>
+        <li>3 colheres de sopa de aveia</li>
+        <li>1 colher de sopa de cacau em pó</li>
+        <li>1 colher de chá de mel</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Coloque todos os ingredientes no liquidificador.</li>
+        <li>Bata até ficar liso e cremoso.</li>
+        <li>Sirva com granola por cima se quiser.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>20 · Molho de Tomate Caseiro Sem Conservante</h3>
+  <p class="receita-desc">Base para tudo: macarrão de abobrinha, frango, tapioca. Faça em lote e congele.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 25 min</div><div class="meta-pill">👤 8 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 45 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1kg de tomates maduros</li>
+        <li>1 cebola, 4 dentes de alho</li>
+        <li>Azeite, sal, açúcar pitada, manjericão</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Refogue cebola e alho no azeite.</li>
+        <li>Acrescente os tomates picados, tampe e cozinhe 20 min.</li>
+        <li>Bata no liquidificador, volte ao fogo, ajuste o sal.</li>
+        <li>Finalize com manjericão e uma pitada de açúcar para tirar a acidez.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ CATEGORIA 3 ══════════════════════════ -->
+<div class="cat-header">
+  <div class="cat-tag">Módulo 4 · Categoria 3</div>
+  <h2>🍫 Doces Fit</h2>
+  <p>Satisfaça a vontade de doce sem culpa. Feitos com ingredientes que você reconhece.</p>
+</div>
+
+<!-- Receita 21 -->
+<div class="receita">
+  <h3>21 · Brigadeiro Fit de Cacau com Tâmara</h3>
+  <p class="receita-desc">Adocicado naturalmente pela tâmara, cremoso e irresistível. Ninguém acredita que é fit.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 20 min</div><div class="meta-pill">👤 20 unidades</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 45 kcal/un</div>
+  </div>
+  <div class="macro-box">
+    <span>Proteína: <em>1g</em></span>
+    <span>Carbo: <em>7g</em></span>
+    <span>Gordura: <em>2g</em></span>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 lata de leite condensado light</li>
+        <li>3 colheres de sopa de cacau em pó 100%</li>
+        <li>1 colher de sopa de manteiga</li>
+        <li>Coco ralado sem açúcar para enrolar</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture o leite condensado, cacau e manteiga na panela.</li>
+        <li>Cozinhe em fogo médio, mexendo sempre, por 10–12 min.</li>
+        <li>Quando soltar do fundo, retire e esfrie completamente.</li>
+        <li>Enrole no coco ralado ou em cacau em pó.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Use cacau 100% — mais amargo, mas equilibrado pelo leite condensado. O resultado é muito mais rico que o achocolatado.</div>
+</div>
+
+<!-- Receita 22 -->
+<div class="receita">
+  <h3>22 · Bolo de Chocolate com Abobrinha</h3>
+  <p class="receita-desc">Úmido, fofinho e ninguém descobre que tem abobrinha. O segredo mais delicioso da cozinha saudável.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 40 min</div><div class="meta-pill">👤 12 fatias</div><div class="meta-pill">🟡 Médio</div><div class="meta-pill">🔥 160 kcal/fatia</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 xícaras de abobrinha ralada (sem espremer)</li>
+        <li>3 ovos</li>
+        <li>½ xícara de óleo de coco ou azeite</li>
+        <li>½ xícara de mel ou açúcar demerara</li>
+        <li>1½ xícara de farinha de aveia</li>
+        <li>½ xícara de cacau em pó</li>
+        <li>1 colher de chá de bicarbonato e 1 de canela</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata os ovos com o óleo e o mel.</li>
+        <li>Adicione a abobrinha ralada e misture.</li>
+        <li>Acrescente os ingredientes secos aos poucos.</li>
+        <li>Despeje em forma untada e asse a 180°C por 30–35 min.</li>
+        <li>Teste com palito — deve sair limpo.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Não espreme a abobrinha — a água dela é o que deixa o bolo úmido.</div>
+</div>
+
+<!-- Receitas 23 a 30 — resumidas -->
+<div class="receita">
+  <h3>23 · Cookie de Aveia com Banana e Gotas de Chocolate</h3>
+  <p class="receita-desc">3 ingredientes, sem açúcar adicionado, pronto em 15 minutos.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 15 min</div><div class="meta-pill">👤 12 unidades</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 70 kcal/un</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 bananas maduras amassadas</li>
+        <li>1 xícara de aveia em flocos</li>
+        <li>2 colheres de sopa de gotas de chocolate 70%</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture banana amassada com aveia até formar massa.</li>
+        <li>Junte as gotas de chocolate.</li>
+        <li>Modele bolinhas achatas em assadeira com papel-manteiga.</li>
+        <li>Asse a 180°C por 12–15 min.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>24 · Mousse de Maracujá com Iogurte Grego</h3>
+  <p class="receita-desc">Cremosa, azedinha e levíssima. Faz-se sem cozinhar — vai direto para a geladeira.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 10 min + gelar</div><div class="meta-pill">👤 4 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 130 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 potes de iogurte grego natural (340g)</li>
+        <li>½ xícara de suco de maracujá</li>
+        <li>3 colheres de sopa de mel</li>
+        <li>1 envelope de gelatina incolor</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Dissolva a gelatina conforme a embalagem e deixe esfriar.</li>
+        <li>Bata o iogurte, suco de maracujá e mel no liquidificador.</li>
+        <li>Adicione a gelatina morna e bata mais 30 seg.</li>
+        <li>Distribua em taças e leve à geladeira por 2h.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>25 · Brownie de Feijão Preto</h3>
+  <p class="receita-desc">Denso, úmido e com gosto de brownie de verdade. Ninguém descobre o feijão.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 35 min</div><div class="meta-pill">👤 12 quadradinhos</div><div class="meta-pill">🟡 Médio</div><div class="meta-pill">🔥 130 kcal/un</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1 lata de feijão preto escorrido e lavado</li>
+        <li>3 ovos</li>
+        <li>½ xícara de cacau em pó</li>
+        <li>½ xícara de mel ou açúcar demerara</li>
+        <li>¼ xícara de óleo de coco</li>
+        <li>1 colher de chá de baunilha e 1 de bicarbonato</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata o feijão no liquidificador com os ovos até ficar cremoso.</li>
+        <li>Acrescente mel, óleo, baunilha e bata mais.</li>
+        <li>Junte cacau e bicarbonato, misture.</li>
+        <li>Asse em forma untada a 180°C por 20–25 min.</li>
+        <li>Espere esfriar completamente antes de cortar.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>26 · Sorvete de Banana de 2 Ingredientes</h3>
+  <p class="receita-desc">Gelado, cremoso, naturalmente doce. Não precisa de sorvete industrial nunca mais.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min + congelar</div><div class="meta-pill">👤 2 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 120 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>3 bananas maduras congeladas em rodelas</li>
+        <li>1 colher de sopa de pasta de amendoim (opcional)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata as bananas congeladas no processador ou liquidificador potente.</li>
+        <li>No começo vai parecer farelo — continue batendo.</li>
+        <li>Em 2–3 min vira um creme liso igual ao sorvete.</li>
+        <li>Sirva imediatamente ou congele mais 1h para firmar.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dica"><strong>Dica da Fabrizia:</strong> Adicione cacau em pó, pasta de amendoim ou morangos congelados para variar o sabor.</div>
+</div>
+
+<div class="receita">
+  <h3>27 · Pudim de Chia com Leite de Coco</h3>
+  <p class="receita-desc">Prepara na noite anterior e acorda com o café da manhã pronto. Cheio de fibra e ômega-3.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 5 min + gelar</div><div class="meta-pill">👤 2 porções</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 190 kcal/porção</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>4 colheres de sopa de sementes de chia</li>
+        <li>1 xícara de leite de coco light</li>
+        <li>1 colher de chá de mel ou baunilha</li>
+        <li>Frutas para servir</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture a chia com o leite de coco e o mel.</li>
+        <li>Mexa bem e deixe 5 min, mexa novamente.</li>
+        <li>Cubra e leve à geladeira por no mínimo 4h (de preferência uma noite).</li>
+        <li>Sirva com frutas por cima.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>28 · Muffin Fit de Maçã com Canela</h3>
+  <p class="receita-desc">Perfumado, macio e sem glúten. Bom para o café da manhã ou lanche da tarde.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 30 min</div><div class="meta-pill">👤 6 muffins</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 140 kcal/un</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>1½ xícara de farinha de aveia</li>
+        <li>2 ovos</li>
+        <li>1 maçã ralada (com casca)</li>
+        <li>¼ xícara de mel</li>
+        <li>¼ xícara de azeite ou óleo de coco</li>
+        <li>1 colher de chá de canela e 1 de fermento</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture os ingredientes líquidos (ovos, mel, óleo).</li>
+        <li>Junte a maçã ralada e misture bem.</li>
+        <li>Adicione aveia, canela e fermento.</li>
+        <li>Distribua em forminhas untadas e asse a 180°C por 20–22 min.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>29 · Açaí Bowl com Toppings Saudáveis</h3>
+  <p class="receita-desc">Monte do jeito que preferir — a base é cremosa e o topping é a diversão.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 10 min</div><div class="meta-pill">👤 1 porção</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 320 kcal</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>100g de polpa de açaí sem adição de açúcar</li>
+        <li>½ banana congelada</li>
+        <li>2 colheres de sopa de leite de coco</li>
+        <li>Toppings: granola, banana, morango, mel, coco ralado</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Bata a polpa de açaí com a banana e o leite de coco.</li>
+        <li>Bata pouco — deve ficar bem espesso (não é vitamina).</li>
+        <li>Transfira para uma tigela.</li>
+        <li>Monte os toppings de forma decorativa e sirva imediatamente.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="receita">
+  <h3>30 · Bolinho de Aveia Assado com Mel e Nozes</h3>
+  <p class="receita-desc">Crocante por fora, macio por dentro. O lanchinho que satisfaz de verdade.</p>
+  <div class="receita-meta">
+    <div class="meta-pill">⏱ 25 min</div><div class="meta-pill">👤 10 bolinhos</div><div class="meta-pill">🟢 Fácil</div><div class="meta-pill">🔥 110 kcal/un</div>
+  </div>
+  <div class="receita-grid">
+    <div>
+      <h4>Ingredientes</h4>
+      <ul class="ingredientes">
+        <li>2 xícaras de aveia em flocos grossos</li>
+        <li>¼ xícara de mel</li>
+        <li>2 colheres de sopa de óleo de coco</li>
+        <li>¼ xícara de nozes ou castanha picadas</li>
+        <li>1 ovo e pitada de sal</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Modo de Preparo</h4>
+      <ol class="preparo">
+        <li>Misture todos os ingredientes até formar massa uniforme.</li>
+        <li>Modele bolinhas e achate levemente em assadeira.</li>
+        <li>Asse a 170°C por 15–18 min até dourar.</li>
+        <li>Deixe esfriar completamente na assadeira — endurece ao esfriar.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<button class="btn-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+</body>
+</html>
